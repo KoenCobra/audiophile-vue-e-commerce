@@ -40,6 +40,10 @@
         font-weight: 700;
         letter-spacing: 2px;
         text-transform: uppercase;
+        transition: $transition;
+        &:hover {
+          color: $orange;
+        }
       }
     }
   }
