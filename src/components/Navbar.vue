@@ -1,7 +1,9 @@
 <template>
   <div class="navbar">
     <div>
-      <img src="/public/images/shared/desktop/logo.svg" alt="logo" />
+      <RouterLink to="/">
+        <img src="/images/shared/desktop/logo.svg" alt="logo" />
+      </RouterLink>
     </div>
     <div class="navbar-links">
       <ul>
@@ -12,7 +14,9 @@
       </ul>
     </div>
     <div>
-      <img src="/public/images/shared/desktop/icon-cart.svg" alt="cart" />
+      <RouterLink to="/">
+        <img src="/images/shared/desktop/icon-cart.svg" alt="cart" />
+      </RouterLink>
     </div>
   </div>
 </template>
