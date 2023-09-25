@@ -2,11 +2,7 @@
   <div class="categories">
     <RouterLink to="/">
       <div class="category">
-        <img
-          class="category-img"
-          src="/images/shared/desktop/image-category-thumbnail-headphones.png"
-          alt="thumb"
-        />
+        <img class="category-img" src="/images/shared/desktop/image-category-thumbnail-headphones.png" alt="thumb" />
         <div class="category-link">
           <p>headphones</p>
           <div class="category-router-link">
@@ -18,11 +14,7 @@
     </RouterLink>
     <RouterLink to="/">
       <div class="category">
-        <img
-          class="category-img"
-          src="/images/shared/desktop/image-category-thumbnail-speakers.png"
-          alt="thumb"
-        />
+        <img class="category-img" src="/images/shared/desktop/image-category-thumbnail-speakers.png" alt="thumb" />
         <div class="category-link">
           <p>speakers</p>
           <div class="category-router-link">
@@ -34,11 +26,7 @@
     </RouterLink>
     <RouterLink to="/">
       <div class="category">
-        <img
-          class="category-img"
-          src="/images/shared/desktop/image-category-thumbnail-earphones.png"
-          alt="thumb"
-        />
+        <img class="category-img" src="/images/shared/desktop/image-category-thumbnail-earphones.png" alt="thumb" />
         <div class="category-link">
           <p>earphones</p>
           <div class="category-router-link">
@@ -57,7 +45,8 @@
 @import '../assets/sass/variables.scss';
 
 .categories {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.9rem;
   margin-top: 200px;
   margin-bottom: 168px;
@@ -74,7 +63,9 @@
     &:hover .category-link span {
       color: $orange;
     }
+
     .category-img {
+      transition: $transition;
       position: absolute;
       left: 50%;
       transform: translate(-50%, -50%);
