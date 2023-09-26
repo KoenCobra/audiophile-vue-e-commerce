@@ -2,7 +2,7 @@
  <div class="footer">
   <div class="footer-links">
    <div>
-    <RouterLink to="/">
+    <RouterLink to="/" @click="scrollToTop">
      <img src="/images/shared/desktop/logo.svg" alt="logo" />
     </RouterLink>
    </div>
@@ -50,7 +50,9 @@
 </template>
 
 <script setup lang="ts">
-
+const scrollToTop = () => {
+ window.scrollTo(0, 0);
+}
 </script>
 
 <style scoped lang="scss">
