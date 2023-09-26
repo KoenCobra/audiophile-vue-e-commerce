@@ -49,8 +49,8 @@
   grid-template-columns: repeat(3, 350px);
   gap: 1.9rem;
   justify-content: center;
-  margin-top: 200px;
-  margin-bottom: 168px;
+  margin-top: 150px;
+  margin-bottom: 130px;
 
   @media (max-width: 1150px) {
     gap: 1.5rem;
@@ -62,7 +62,7 @@
   }
 
   @media (max-width: 745px) {
-    gap: 4.25rem;
+    gap: 5.5rem;
     grid-template-columns: 1fr;
     padding-inline: 2.5rem;
   }

@@ -24,6 +24,11 @@
  align-items: center;
  padding-left: 6rem;
 
+ @media (max-width: 1150px) {
+  background: url('/images/home/tablet/image-speaker-zx7.jpg') center/cover no-repeat;
+  padding-left: 4rem;
+ }
+
  .ZX7-speaker-text {
   gap: 1.5rem;
   display: grid;
