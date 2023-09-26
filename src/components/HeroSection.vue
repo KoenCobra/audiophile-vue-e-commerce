@@ -30,6 +30,10 @@ import Navbar from './Navbar.vue'
     background: url('/images/home/tablet/image-header.jpg') center/cover no-repeat;
   }
 
+  @media (max-width: 600px) {
+    background: url('/images/home/mobile/image-header.jpg') center/cover no-repeat;
+  }
+
   .hero-text-section {
     height: calc(100vh - 92.5px);
     max-width: 1100px;

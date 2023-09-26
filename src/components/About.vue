@@ -29,12 +29,25 @@
  grid-template-columns: repeat(2, 1fr);
  margin-bottom: 200px;
 
+ @media (max-width: 1150px) {
+  margin-bottom: 130px;
+  grid-template-columns: 1fr;
+  text-align: center;
+  padding-inline: 2.5rem;
+ }
+
  .about-text {
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 2rem;
   width: 455px;
+
+  @media (max-width: 1150px) {
+   width: 573px;
+   order: 1;
+   margin-inline: auto;
+  }
 
   h2 {
    font-size: 2.5rem;
@@ -64,6 +77,14 @@
   border-radius: 8px;
   background: url('/images/shared/desktop/image-best-gear.jpg') center/cover;
   height: 588px;
+
+  @media (max-width: 1150px) {
+   background: url('/images/shared/tablet/image-best-gear.jpg') center/cover;
+  }
+
+  @media (max-width: 600px) {
+   background: url('/images/shared/mobile/image-best-gear.jpg') center/cover;
+  }
  }
 }
 </style>

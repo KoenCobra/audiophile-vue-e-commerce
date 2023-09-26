@@ -51,11 +51,7 @@
     align-items: center;
     gap: 2.75rem;
 
-    .hamburger {
-      @media (min-width: 1150px) {
-        display: none;
-      }
-    }
+    .hamburger {}
   }
 
   @media (max-width: 1150px) {
