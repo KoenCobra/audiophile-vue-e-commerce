@@ -61,6 +61,12 @@
     gap: 0.65rem;
   }
 
+  @media (max-width: 745px) {
+    gap: 4.25rem;
+    grid-template-columns: 1fr;
+    padding-inline: 2.5rem;
+  }
+
   .category {
     position: relative;
     border-radius: 8px;
