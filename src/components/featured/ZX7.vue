@@ -16,7 +16,7 @@
 @import '../../assets/sass/variables.scss';
 
 .ZX7-speaker {
- background: url('/public/images/home/desktop/image-speaker-zx7.jpg') center/cover no-repeat;
+ background: url('/images/home/desktop/image-speaker-zx7.jpg') center/cover no-repeat;
  height: 320px;
  border-radius: 8px;
  display: grid;

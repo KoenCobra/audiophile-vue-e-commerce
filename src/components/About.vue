@@ -62,7 +62,7 @@
 
  .about-img {
   border-radius: 8px;
-  background: url('/public/images/shared/desktop/image-best-gear.jpg') center/cover;
+  background: url('/images/shared/desktop/image-best-gear.jpg') center/cover;
   height: 588px;
  }
 }
