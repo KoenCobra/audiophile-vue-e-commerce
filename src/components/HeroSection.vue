@@ -21,15 +21,18 @@ import Navbar from './Navbar.vue'
 
 <style scoped lang="scss">
 @import '../assets/sass/variables.scss';
+
 .hero-section {
   min-height: 100vh;
   background: url('/images/home/desktop/image-hero.jpg') center/cover no-repeat;
 
   .hero-text-section {
+    height: calc(100vh - 92.5px);
     max-width: 1100px;
     margin-inline: auto;
-    margin-top: 128px;
     color: $white;
+    display: flex;
+    align-items: center;
 
     .hero-text {
       display: flex;
