@@ -46,10 +46,20 @@
 
 .categories {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 350px);
   gap: 1.9rem;
+  justify-content: center;
   margin-top: 200px;
   margin-bottom: 168px;
+
+  @media (max-width: 1150px) {
+    gap: 1.5rem;
+    grid-template-columns: repeat(3, 223px);
+  }
+
+  @media (max-width: 850px) {
+    gap: 0.65rem;
+  }
 
   .category {
     position: relative;
@@ -88,6 +98,10 @@
       align-items: center;
       gap: 1rem;
       padding: 116px 106px 30px;
+
+      @media (max-width: 850px) {
+        padding-inline: 80px;
+      }
 
       p {
         font-size: 1.125rem;

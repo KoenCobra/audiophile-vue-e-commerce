@@ -26,6 +26,10 @@ import Navbar from './Navbar.vue'
   min-height: 100vh;
   background: url('/images/home/desktop/image-hero.jpg') center/cover no-repeat;
 
+  @media (max-width: 1150px) {
+    background: url('/images/home/tablet/image-header.jpg') center/cover no-repeat;
+  }
+
   .hero-text-section {
     height: calc(100vh - 92.5px);
     max-width: 1100px;
@@ -34,11 +38,20 @@ import Navbar from './Navbar.vue'
     display: flex;
     align-items: center;
 
+    @media (max-width: 1150px) {
+      justify-content: center;
+      text-align: center;
+    }
+
     .hero-text {
       display: flex;
       flex-direction: column;
       gap: 1.5rem;
       width: 379px;
+
+      @media (max-width: 1150px) {
+        align-items: center;
+      }
 
       span {
         font-size: 0.875rem;
