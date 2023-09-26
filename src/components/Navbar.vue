@@ -2,7 +2,7 @@
   <div class="navbar">
     <div class="navbar-toggle">
       <div class="hamburger">
-        <img src="/public/images/shared/tablet/icon-hamburger.svg" alt="toggle">
+        <img src="/images/shared/tablet/icon-hamburger.svg" alt="toggle">
       </div>
       <RouterLink to="/">
         <img src="/images/shared/desktop/logo.svg" alt="logo" />

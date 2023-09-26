@@ -17,5 +17,9 @@ import YX1 from './YX1.vue';
  display: grid;
  gap: 2.5rem;
  margin-bottom: 200px;
+
+ @media (max-width: 1150px) {
+  padding-inline: 2.5rem;
+ }
 }
 </style>

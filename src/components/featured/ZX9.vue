@@ -28,11 +28,34 @@
  align-items: center;
  padding-right: 6rem;
 
+ @media (max-width: 950px) {
+  background: url('/images/home/tablet/image-speaker-zx9.png'), url('/images/home/desktop/pattern-circles.svg');
+  background-repeat: no-repeat;
+  background-position: center top 15%, center top -30%;
+  background-size: 28%, 100%;
+  height: 720px;
+  border-radius: 8px;
+  background-color: $orange;
+  display: grid;
+  justify-content: center;
+  align-items: end;
+  padding: 0 0 4rem;
+ }
+
  .ZX9-speaker-text {
   gap: 1.5rem;
   display: grid;
   width: 349px;
   color: $white;
+
+  @media (max-width: 1000px) {
+
+
+   text-align: center;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+  }
 
   h2 {
    font-size: 3.5rem;
