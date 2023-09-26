@@ -64,6 +64,16 @@
       color: $orange;
     }
 
+    &:hover {
+      .category-img {
+        transition: $transition;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 170px;
+      }
+    }
+
     .category-img {
       transition: $transition;
       position: absolute;
