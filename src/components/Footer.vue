@@ -6,20 +6,7 @@
           <img src="/images/shared/desktop/logo.svg" alt="logo" />
         </RouterLink>
       </div>
-      <ul>
-        <li>
-          <RouterLink to="/">home</RouterLink>
-        </li>
-        <li>
-          <RouterLink to="/headphones">headphones</RouterLink>
-        </li>
-        <li>
-          <RouterLink to="/">speakers</RouterLink>
-        </li>
-        <li>
-          <RouterLink to="/">earphones</RouterLink>
-        </li>
-      </ul>
+      <NavLinks />
     </div>
     <div class="footer-text">
       <p>
@@ -63,6 +50,7 @@
 <script setup lang="ts">
 import { breakpointsTailwind, useBreakpoints } from '@vueuse/core'
 import { onMounted, ref } from 'vue'
+import NavLinks from './NavLinks.vue'
 
 const isElementMounted = ref(false)
 const elementToCheck = ref(null)
@@ -119,32 +107,6 @@ const scrollToTop = () => {
       width: 101px;
       top: 0;
       background-color: $orange;
-    }
-
-    ul {
-      display: flex;
-      gap: 2rem;
-      padding-block: 2.25rem;
-
-      @media (max-width: 520px) {
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-      }
-
-      li {
-        a {
-          font-size: 0.8125rem;
-          font-weight: 700;
-          letter-spacing: 2px;
-          text-transform: uppercase;
-          transition: $transition;
-
-          &:hover {
-            color: $orange;
-          }
-        }
-      }
     }
   }
 

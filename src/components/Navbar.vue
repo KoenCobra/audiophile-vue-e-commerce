@@ -9,20 +9,7 @@
       </RouterLink>
     </div>
     <div class="navbar-links">
-      <ul>
-        <li>
-          <RouterLink to="/">home</RouterLink>
-        </li>
-        <li>
-          <RouterLink to="/headphones">headphones</RouterLink>
-        </li>
-        <li>
-          <RouterLink to="/">speakers</RouterLink>
-        </li>
-        <li>
-          <RouterLink to="/">earphones</RouterLink>
-        </li>
-      </ul>
+      <NavLinks />
     </div>
     <div>
       <RouterLink to="/">
@@ -32,7 +19,9 @@
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import NavLinks from './NavLinks.vue'
+</script>
 
 <style scoped lang="scss">
 @import '../assets/sass/variables.scss';
@@ -43,13 +32,16 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-block: 2.25rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1;
+
+  @media (max-width: 1150px) {
+    padding-block: 2.25rem;
+  }
 
   .navbar-toggle {
     display: flex;
@@ -59,6 +51,7 @@
     .hamburger {
       @media (min-width: 1150px) {
         display: none;
+        padding-block: 2.25rem;
       }
     }
   }
@@ -72,24 +65,6 @@
   }
 
   .navbar-links {
-    ul {
-      display: flex;
-      gap: 2rem;
-
-      li {
-        color: $white;
-        font-size: 0.8125rem;
-        font-weight: 700;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-        transition: $transition;
-
-        &:hover {
-          color: $orange;
-        }
-      }
-    }
-
     @media (max-width: 1150px) {
       display: none;
     }
