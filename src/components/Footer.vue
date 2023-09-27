@@ -68,7 +68,7 @@ onMounted(() => {
 })
 
 const breakpoints = useBreakpoints(breakpointsTailwind)
-const isDesktop = breakpoints.greater('md')
+const isDesktop = breakpoints.greater('xl')
 
 const scrollToTop = () => {
   window.scrollTo(0, 0);
@@ -87,6 +87,13 @@ const scrollToTop = () => {
     padding-inline: 42px;
   }
 
+
+  @media (max-width: 520px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   .footer-links {
     display: flex;
     align-items: center;
@@ -95,7 +102,8 @@ const scrollToTop = () => {
 
     @media (max-width: 1000px) {
       flex-direction: column;
-      align-items: start;
+      align-items: center;
+      justify-content: center;
       padding-top: 3rem;
     }
 
@@ -113,8 +121,10 @@ const scrollToTop = () => {
       gap: 2rem;
       padding-block: 2.25rem;
 
-      @media (max-width: 1150px) {
-        padding-block: 1.25rem;
+      @media (max-width: 520px) {
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
       }
 
       li {
@@ -137,12 +147,26 @@ const scrollToTop = () => {
     display: flex;
     justify-content: space-between;
 
+    @media (max-width: 1150px) {
+      flex-grow: 1 !important;
+      text-align: center;
+      width: 100%;
+    }
+
     p {
       width: 540px;
       opacity: 0.5;
       font-size: 0.9375rem;
       font-weight: 500;
       line-height: 25px;
+
+      @media (max-width: 1150px) {
+        margin-inline: auto;
+      }
+    }
+
+    @media (max-width: 1150px) {
+      width: 100%;
     }
 
     .social-links {
@@ -168,8 +192,11 @@ const scrollToTop = () => {
   }
 
   .copy {
-
     padding-block: 48px;
+
+    @media (max-width: 1000px) {
+      text-align: center;
+    }
 
     p {
       font-size: 0.9375rem;
@@ -177,9 +204,16 @@ const scrollToTop = () => {
       opacity: 0.5;
     }
 
-    @media (max-width: 1000px) {
+    @media (max-width: 1280px) {
       display: flex;
       justify-content: space-between;
+    }
+
+    @media (max-width: 520px) {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 3rem;
     }
 
     .social-links {
