@@ -1,4 +1,5 @@
 <template>
+  <Navbar />
   <RouterView />
   <div class="about">
     <About />
@@ -9,6 +10,7 @@
 <script setup lang="ts">
 import Footer from './components/Footer.vue'
 import About from '@/components/About.vue'
+import Navbar from '@/components/Navbar.vue'
 </script>
 
 <style scoped lang="scss">

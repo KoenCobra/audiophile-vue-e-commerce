@@ -1,6 +1,5 @@
 <template>
   <div class="hero-section">
-    <Navbar />
     <div class="hero-text-section">
       <div class="hero-text">
         <span>new product</span>
@@ -15,9 +14,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
-import Navbar from './Navbar.vue'
-</script>
+<script setup lang="ts"></script>
 
 <style scoped lang="scss">
 @import '../assets/sass/variables.scss';

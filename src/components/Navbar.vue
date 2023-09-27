@@ -45,6 +45,11 @@
   justify-content: space-between;
   padding-block: 2.25rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
 
   .navbar-toggle {
     display: flex;
