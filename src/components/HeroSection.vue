@@ -1,6 +1,6 @@
 <template>
   <div class="hero-section">
-    <Navbar></Navbar>
+    <Navbar />
     <div class="hero-text-section">
       <div class="hero-text">
         <span>new product</span>

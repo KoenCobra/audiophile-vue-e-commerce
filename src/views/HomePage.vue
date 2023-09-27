@@ -3,7 +3,6 @@
   <main>
     <Categories></Categories>
     <Featured></Featured>
-    <About></About>
   </main>
 </template>
 
@@ -11,7 +10,6 @@
 import HeroSection from '@/components/HeroSection.vue'
 import Categories from '@/components/Categories.vue'
 import Featured from '@/components/featured/Featured.vue'
-import About from '@/components/About.vue'
 </script>
 
 <style scoped lang="scss">
