@@ -2,7 +2,7 @@
   <div class="navbar">
     <div class="navbar-toggle">
       <div class="hamburger">
-        <img src="/images/shared/tablet/icon-hamburger.svg" alt="toggle">
+        <img src="/images/shared/tablet/icon-hamburger.svg" alt="toggle" />
       </div>
       <RouterLink to="/">
         <img src="/images/shared/desktop/logo.svg" alt="logo" />
@@ -14,7 +14,7 @@
           <RouterLink to="/">home</RouterLink>
         </li>
         <li>
-          <RouterLink to="/">headphones</RouterLink>
+          <RouterLink to="/headphones">headphones</RouterLink>
         </li>
         <li>
           <RouterLink to="/">speakers</RouterLink>
@@ -32,8 +32,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>
 
 <style scoped lang="scss">
 @import '../assets/sass/variables.scss';
@@ -51,6 +50,12 @@
     display: flex;
     align-items: center;
     gap: 2.75rem;
+
+    .hamburger {
+      @media (min-width: 1150px) {
+        display: none;
+      }
+    }
   }
 
   @media (max-width: 1150px) {
@@ -60,7 +65,6 @@
     background-color: $black;
     z-index: 1;
   }
-
 
   .navbar-links {
     ul {

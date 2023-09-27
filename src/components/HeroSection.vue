@@ -57,6 +57,11 @@ import Navbar from './Navbar.vue'
         align-items: center;
       }
 
+      @media (max-width: 450px) {
+        width: 100%;
+        padding-inline: 0.5rem;
+      }
+
       span {
         font-size: 0.875rem;
         letter-spacing: 10px;
@@ -70,6 +75,10 @@ import Navbar from './Navbar.vue'
         letter-spacing: 2px;
         text-transform: uppercase;
         line-height: 58px;
+
+        @media (max-width: 550px) {
+          font-size: 2.5rem;
+        }
       }
 
       p {

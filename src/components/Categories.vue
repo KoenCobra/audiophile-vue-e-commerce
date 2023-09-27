@@ -2,7 +2,11 @@
   <div class="categories">
     <RouterLink to="/">
       <div class="category">
-        <img class="category-img" src="/images/shared/desktop/image-category-thumbnail-headphones.png" alt="thumb" />
+        <img
+          class="category-img"
+          src="/images/shared/desktop/image-category-thumbnail-headphones.png"
+          alt="thumb"
+        />
         <div class="category-link">
           <p>headphones</p>
           <div class="category-router-link">
@@ -14,7 +18,11 @@
     </RouterLink>
     <RouterLink to="/">
       <div class="category">
-        <img class="category-img" src="/images/shared/desktop/image-category-thumbnail-speakers.png" alt="thumb" />
+        <img
+          class="category-img"
+          src="/images/shared/desktop/image-category-thumbnail-speakers.png"
+          alt="thumb"
+        />
         <div class="category-link">
           <p>speakers</p>
           <div class="category-router-link">
@@ -26,7 +34,11 @@
     </RouterLink>
     <RouterLink to="/">
       <div class="category">
-        <img class="category-img" src="/images/shared/desktop/image-category-thumbnail-earphones.png" alt="thumb" />
+        <img
+          class="category-img"
+          src="/images/shared/desktop/image-category-thumbnail-earphones.png"
+          alt="thumb"
+        />
         <div class="category-link">
           <p>earphones</p>
           <div class="category-router-link">
@@ -64,7 +76,6 @@
   @media (max-width: 745px) {
     gap: 5.5rem;
     grid-template-columns: 1fr;
-    padding-inline: 2.5rem;
   }
 
   .category {
