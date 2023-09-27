@@ -1,6 +1,5 @@
 <template>
  <div class="about">
-
   <div class="about-text">
    <h2>
     Bringing you the <span>best</span> audio gear
@@ -49,6 +48,10 @@
    margin-inline: auto;
   }
 
+  @media (max-width: 600px) {
+   width: 100%;
+  }
+
   h2 {
    font-size: 2.5rem;
    font-style: normal;
@@ -75,15 +78,15 @@
 
  .about-img {
   border-radius: 8px;
-  background: url('/images/shared/desktop/image-best-gear.jpg') center/cover;
+  background: url('/images/shared/desktop/image-best-gear.jpg') center/cover no-repeat;
   height: 588px;
 
   @media (max-width: 1150px) {
-   background: url('/images/shared/tablet/image-best-gear.jpg') center/cover;
+   background: url('/images/shared/tablet/image-best-gear.jpg') center/cover no-repeat;
   }
 
   @media (max-width: 600px) {
-   background: url('/images/shared/mobile/image-best-gear.jpg') center/cover;
+   background: url('/images/shared/mobile/image-best-gear.jpg') center/cover no-repeat;
   }
  }
 }

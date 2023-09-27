@@ -32,7 +32,8 @@
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+</script>
 
 <style scoped lang="scss">
 @import '../assets/sass/variables.scss';
@@ -50,8 +51,6 @@
     display: flex;
     align-items: center;
     gap: 2.75rem;
-
-    .hamburger {}
   }
 
   @media (max-width: 1150px) {
