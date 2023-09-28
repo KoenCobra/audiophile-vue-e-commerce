@@ -8,13 +8,15 @@
           Experience natural, lifelike audio and exceptional build quality made for the passionate
           music enthusiast.
         </p>
-        <RouterLink to="/" class="hero-btn">See Product</RouterLink>
+        <PrimaryLink href="/" />
       </div>
     </div>
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import PrimaryLink from './PrimaryLink.vue'
+</script>
 
 <style scoped lang="scss">
 @import '../assets/sass/variables.scss';
@@ -83,22 +85,6 @@
         font-weight: 500;
         opacity: 0.75;
         line-height: 25px;
-      }
-
-      .hero-btn {
-        background-color: $orange;
-        width: max-content;
-        color: $white;
-        font-size: 0.8125rem;
-        font-weight: 700;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-        padding: 1rem 2rem;
-        transition: $transition;
-
-        &:hover {
-          background-color: $orangeHover;
-        }
       }
     }
   }

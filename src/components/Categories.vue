@@ -1,6 +1,6 @@
 <template>
   <div class="categories">
-    <RouterLink to="/">
+    <RouterLink to="/headphones">
       <div class="category">
         <img
           class="category-img"
@@ -16,7 +16,7 @@
         </div>
       </div>
     </RouterLink>
-    <RouterLink to="/">
+    <RouterLink to="/speakers">
       <div class="category">
         <img
           class="category-img"
@@ -32,7 +32,7 @@
         </div>
       </div>
     </RouterLink>
-    <RouterLink to="/">
+    <RouterLink to="/earphones">
       <div class="category">
         <img
           class="category-img"

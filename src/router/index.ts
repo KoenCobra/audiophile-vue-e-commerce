@@ -10,6 +10,14 @@ const router = createRouter({
     {
       path: "/headphones",
       component: () => import('../views/Headphones.vue')
+    },
+    {
+      path: "/speakers",
+      component: () => import('../views/Speakers.vue')
+    },
+    {
+      path: "/earphones",
+      component: () => import('../views/Earphones.vue')
     }
   ]
 })
