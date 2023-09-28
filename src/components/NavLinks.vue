@@ -9,10 +9,10 @@
       <RouterLink to="/headphones">headphones</RouterLink>
     </li>
     <li>
-      <RouterLink to="/">speakers</RouterLink>
+      <RouterLink to="/speakers">speakers</RouterLink>
     </li>
     <li>
-      <RouterLink to="/">earphones</RouterLink>
+      <RouterLink to="/earphones">earphones</RouterLink>
     </li>
   </ul>
 </template>

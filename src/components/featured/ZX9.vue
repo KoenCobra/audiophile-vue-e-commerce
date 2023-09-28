@@ -5,12 +5,14 @@
       <p>
         Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.
       </p>
-      <RouterLink to="/">see product</RouterLink>
+      <PrimaryLink href="/" :is-black="true" />
     </div>
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import PrimaryLink from '../PrimaryLink.vue'
+</script>
 
 <style scoped lang="scss">
 @import '../../assets/sass/variables.scss';
@@ -79,21 +81,6 @@
       font-weight: 500;
       line-height: 25px;
       opacity: 0.75;
-    }
-
-    a {
-      background-color: $black;
-      width: max-content;
-      font-size: 0.8125rem;
-      padding: 1rem 2rem;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      transition: $transition;
-
-      &:hover {
-        background-color: $blackHover;
-      }
     }
   }
 }

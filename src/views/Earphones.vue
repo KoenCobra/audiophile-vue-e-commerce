@@ -3,5 +3,5 @@ import Category from '@/components/Category.vue'
 </script>
 
 <template>
-  <Category category-header="headphones" category="headphones"></Category>
+  <Category category-header="earphones" category="earphones"></Category>
 </template>
