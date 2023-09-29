@@ -82,11 +82,20 @@ onMounted(async () => {
       }
     }
     img {
+      object-fit: cover;
       width: 560px;
       height: 540px;
+
+      @media (max-width: 600px) {
+        width: 100%;
+      }
     }
     .product-details {
       width: 445px;
+
+      @media (max-width: 600px) {
+        width: 100%;
+      }
 
       .new-product {
         color: $orange;

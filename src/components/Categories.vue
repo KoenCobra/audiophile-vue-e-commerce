@@ -65,12 +65,16 @@
   margin-bottom: 130px;
 
   @media (max-width: 1150px) {
+    padding-inline: 2.5rem;
     gap: 1.5rem;
     grid-template-columns: repeat(3, 223px);
   }
 
   @media (max-width: 850px) {
     gap: 0.65rem;
+  }
+  @media (max-width: 600px) {
+    padding-inline: 0.9rem;
   }
 
   @media (max-width: 745px) {
