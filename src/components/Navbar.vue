@@ -41,6 +41,7 @@ import NavLinks from './NavLinks.vue'
 
   @media (max-width: 1150px) {
     padding-block: 2.25rem;
+    max-width: 1150px;
   }
 
   .navbar-toggle {
