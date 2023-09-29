@@ -32,6 +32,10 @@ const props = defineProps({
   height: 336px;
   background-color: $black;
   position: relative;
+
+  @media (max-width: 1150px) {
+    height: 192px;
+  }
   p {
     font-size: 2.5rem;
     font-weight: 700;
@@ -42,6 +46,10 @@ const props = defineProps({
     left: 50%;
     top: 50%;
     transform: translateX(-50%);
+
+    @media (max-width: 1150px) {
+      transform: translate(-50%, -50%);
+    }
   }
 }
 

@@ -55,6 +55,7 @@ onMounted(async () => {
   }
 
   @media (max-width: 600px) {
+    margin-top: 64px;
     padding-inline: 0.9rem;
   }
 
