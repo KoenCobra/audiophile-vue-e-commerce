@@ -22,10 +22,11 @@ import PrimaryLink from './PrimaryLink.vue'
 @import '../assets/sass/variables.scss';
 
 .hero-section {
-  min-height: 100vh;
+  height: 100vh;
   background: url('/images/home/desktop/image-hero.jpg') center/cover no-repeat;
 
   @media (max-width: 1150px) {
+    height: calc(100vh - 92.5px);
     background: url('/images/home/tablet/image-header.jpg') center/cover no-repeat;
   }
 
