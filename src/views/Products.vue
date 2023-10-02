@@ -8,7 +8,6 @@ const category = ref()
 
 watchEffect(() => {
   category.value = route.params.category
-  console.log(category.value)
 })
 </script>
 
