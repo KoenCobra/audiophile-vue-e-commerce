@@ -11,16 +11,8 @@ const router = createRouter({
       component: () => import('../views/HomePage.vue')
     },
     {
-      path: "/headphones",
-      component: () => import('../views/Headphones.vue')
-    },
-    {
-      path: "/speakers",
-      component: () => import('../views/Speakers.vue')
-    },
-    {
-      path: "/earphones",
-      component: () => import('../views/Earphones.vue')
+      path: "/:category",
+      component: () => import('../views/Products.vue')
     },
     {
       path: "/products/:id",
