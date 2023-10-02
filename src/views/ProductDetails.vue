@@ -6,6 +6,7 @@ import PrimaryLink from '@/components/PrimaryLink.vue'
 import AddQuantity from '@/components/AddQuantity.vue'
 import InTheBox from '@/components/InTheBox.vue'
 import Gallery from '@/components/Gallery.vue'
+import Categories from '@/components/Categories.vue'
 
 const productStore = useProductStore()
 const route = useRoute()
@@ -38,6 +39,7 @@ watchEffect(async () => {
     </div>
     <InTheBox />
     <Gallery />
+    <Categories />
   </div>
 </template>
 

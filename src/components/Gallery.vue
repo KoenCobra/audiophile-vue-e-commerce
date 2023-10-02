@@ -15,17 +15,21 @@ const productStore = useProductStore()
 <style lang="scss" scoped>
 .gallery {
   display: grid;
-  gap: 2rem;
+  gap: 1.5rem;
   grid-template-areas:
-    'first second second'
-    'third second second';
-  width: 100%;
+    'first second'
+    'third second';
   margin-top: 120px;
   grid-template-columns: 40% 60%;
+  width: 100%;
 
-  @media (max-width: 1150px) {
+  @media (max-width: 600px) {
     grid-template-columns: 1fr;
-    grid-template-areas: 'first second third';
+    grid-template-areas:
+      'first'
+      'third'
+      'second';
+    margin-top: 80px;
   }
   .first {
     grid-area: first;
@@ -41,7 +45,7 @@ const productStore = useProductStore()
 
   img {
     border-radius: 8px;
-    object-fit: cover;
+    width: 100%;
   }
 }
 </style>

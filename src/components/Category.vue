@@ -19,7 +19,6 @@ watchEffect(async () => {
   <div class="products">
     <CategoryProduct :category="category" />
   </div>
-
   <Categories />
 </template>
 
