@@ -16,8 +16,8 @@ watchEffect(async () => {
 </script>
 
 <template>
-  <button @click="router.back()">Go Back</button>
   <div class="product-details">
+    <button class="back-btn" @click="router.back()">Go Back</button>
     <div class="category-product">
       <div>
         <img loading="lazy" :src="`/${productStore.product?.image.desktop}`" alt="img" />
@@ -41,6 +41,15 @@ watchEffect(async () => {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  align-items: flex-start;
+
+  .back-btn {
+    color: #000;
+    font-size: 0.9325rem;
+    font-weight: 500;
+    opacity: 0.5;
+    margin-block: 2rem;
+  }
 
   h1 {
     margin-bottom: 0;
