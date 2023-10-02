@@ -26,7 +26,7 @@ import PrimaryLink from './PrimaryLink.vue'
   background: url('/images/home/desktop/image-hero.jpg') center/cover no-repeat;
 
   @media (max-width: 1150px) {
-    height: calc(100vh - 92.5px);
+    height: calc(100vh - 72px);
     background: url('/images/home/tablet/image-header.jpg') center/cover no-repeat;
   }
 
