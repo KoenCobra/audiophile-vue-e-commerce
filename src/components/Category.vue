@@ -1,28 +1,25 @@
 <script lang="ts" setup>
+import { useRoute } from 'vue-router'
 import Categories from './Categories.vue'
 import CategoryProduct from './CategoryProduct.vue'
+import { ref, watchEffect } from 'vue'
 
-const props = defineProps({
-  categoryHeader: {
-    type: String,
-    default: ''
-  },
-  category: {
-    type: String,
-    default: ''
-  }
+const route = useRoute()
+const category = ref()
+
+watchEffect(async () => {
+  category.value = route.params.category
 })
 </script>
 
 <template>
   <div class="category-hero">
-    <p>{{ props.categoryHeader }}</p>
+    <p>{{ category }}</p>
   </div>
   <div class="products">
     <CategoryProduct :category="category" />
   </div>
 
-  <div class="category-products"></div>
   <Categories />
 </template>
 

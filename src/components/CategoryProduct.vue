@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { useProductStore } from '@/stores/productStore'
-import { computed, onMounted } from 'vue'
+import { computed } from 'vue'
 import PrimaryLink from './PrimaryLink.vue'
 
 const productStore = useProductStore()
@@ -17,23 +17,19 @@ const props = defineProps({
     default: ''
   }
 })
-
-onMounted(async () => {
-  await productStore.getProducts()
-})
 </script>
 
 <template>
   <div class="category-products">
     <div class="category-product" v-for="product in sortedProducts" :key="product.id">
       <div>
-        <img loading="lazy" :src="`${product.image.desktop}`" alt="headphones" />
+        <img loading="lazy" :src="`/${product.image.desktop}`" alt="headphones" />
       </div>
       <div class="product-details">
         <p class="new-product" v-if="product.new">new product</p>
         <h1>{{ product.name }}</h1>
         <p class="description">{{ product.description }}</p>
-        <PrimaryLink :href="`/products/${product.id}`" />
+        <PrimaryLink :href="`/products/${product.category}/${product.id}`" />
       </div>
     </div>
   </div>

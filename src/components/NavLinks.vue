@@ -6,13 +6,13 @@
       <RouterLink to="/">home</RouterLink>
     </li>
     <li>
-      <RouterLink to="/headphones">headphones</RouterLink>
+      <RouterLink to="/products/headphones">headphones</RouterLink>
     </li>
     <li>
-      <RouterLink to="/speakers">speakers</RouterLink>
+      <RouterLink to="/products/speakers">speakers</RouterLink>
     </li>
     <li>
-      <RouterLink to="/earphones">earphones</RouterLink>
+      <RouterLink to="/products/earphones">earphones</RouterLink>
     </li>
   </ul>
 </template>
@@ -40,7 +40,9 @@ ul {
       text-transform: uppercase;
       transition: $transition;
 
-      &:hover {
+      &:hover,
+      &.router-link-active,
+      &.router-link-exact-active {
         color: $orange;
       }
     }

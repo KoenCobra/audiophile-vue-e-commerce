@@ -42,6 +42,7 @@ watchEffect(async () => {
   flex-direction: column;
   gap: 1.5rem;
   align-items: flex-start;
+  order: 0 !important;
 
   .back-btn {
     color: #000;
