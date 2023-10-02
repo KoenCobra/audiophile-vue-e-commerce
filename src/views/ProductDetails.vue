@@ -5,6 +5,7 @@ import { useRoute, useRouter } from 'vue-router'
 import PrimaryLink from '@/components/PrimaryLink.vue'
 import AddQuantity from '@/components/AddQuantity.vue'
 import InTheBox from '@/components/InTheBox.vue'
+import Gallery from '@/components/Gallery.vue'
 
 const productStore = useProductStore()
 const route = useRoute()
@@ -36,6 +37,7 @@ watchEffect(async () => {
       </div>
     </div>
     <InTheBox />
+    <Gallery />
   </div>
 </template>
 
@@ -44,6 +46,7 @@ watchEffect(async () => {
 .product-details {
   max-width: 1100px;
   margin-inline: auto;
+
   display: flex;
   flex-direction: column;
   gap: 1.5rem;

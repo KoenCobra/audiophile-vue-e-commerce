@@ -11,6 +11,14 @@
 import Footer from './components/Footer.vue'
 import About from '@/components/About.vue'
 import Navbar from '@/components/Navbar.vue'
+import { onMounted } from 'vue'
+import { useProductStore } from './stores/productStore'
+
+const productStore = useProductStore()
+
+onMounted(async () => {
+  await productStore.getProducts()
+})
 </script>
 
 <style scoped lang="scss">
