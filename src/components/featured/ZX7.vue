@@ -2,7 +2,7 @@
   <div class="ZX7-speaker">
     <div class="ZX7-speaker-text">
       <h2>ZX7 SPEAKER</h2>
-      <PrimaryLink href="/" :is-black-on-hover="true" />
+      <PrimaryLink href="/products/speakers/5" :is-black-on-hover="true" />
     </div>
   </div>
 </template>

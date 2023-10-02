@@ -69,6 +69,12 @@ watchEffect(async () => {
 
   @media (max-width: 1150px) {
     padding-inline: 2.5rem;
+    align-items: center;
+    text-align: center;
+
+    .back-btn {
+      align-self: start;
+    }
   }
   @media (max-width: 600px) {
     padding-inline: 0.9rem;

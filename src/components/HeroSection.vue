@@ -8,7 +8,7 @@
           Experience natural, lifelike audio and exceptional build quality made for the passionate
           music enthusiast.
         </p>
-        <PrimaryLink href="/" />
+        <PrimaryLink :href="`products/headphones/4`" />
       </div>
     </div>
   </div>

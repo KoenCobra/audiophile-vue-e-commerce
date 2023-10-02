@@ -1,6 +1,6 @@
 <template>
   <div class="categories">
-    <RouterLink to="/headphones">
+    <RouterLink to="/products/headphones">
       <div class="category">
         <img
           loading="lazy"
@@ -17,7 +17,7 @@
         </div>
       </div>
     </RouterLink>
-    <RouterLink to="/speakers">
+    <RouterLink to="/products/speakers">
       <div class="category">
         <img
           loading="lazy"
@@ -34,7 +34,7 @@
         </div>
       </div>
     </RouterLink>
-    <RouterLink to="/earphones">
+    <RouterLink to="/products/earphones">
       <div class="category">
         <img
           loading="lazy"

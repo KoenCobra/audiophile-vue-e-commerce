@@ -3,7 +3,7 @@
     <div class="product"></div>
     <div class="text">
       <h2>YX1 SPEAKER</h2>
-      <PrimaryLink href="/" :is-black-on-hover="true" />
+      <PrimaryLink href="/products/earphones/1" :is-black-on-hover="true" />
     </div>
   </div>
 </template>

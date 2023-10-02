@@ -5,7 +5,7 @@
       <p>
         Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.
       </p>
-      <PrimaryLink href="/" :is-black="true" />
+      <PrimaryLink href="/products/speakers/6" :is-black="true" />
     </div>
   </div>
 </template>
