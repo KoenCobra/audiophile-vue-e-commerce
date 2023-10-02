@@ -14,8 +14,8 @@ const productStore = useProductStore()
     </div>
     <div class="in-the-box">
       <h2>in the box</h2>
-      <div v-for="(item, index) in productStore.product?.includes" :key="index">
-        <span class="quantity"> {{ item.quantity }} </span>
+      <div class="includes" v-for="(item, index) in productStore.product?.includes" :key="index">
+        <span class="quantity"> {{ item.quantity }}x </span>
         <span class="item"> {{ item.item }} </span>
       </div>
     </div>
@@ -48,10 +48,18 @@ const productStore = useProductStore()
 
   .in-the-box {
     justify-self: center;
-
-    .quantity {
+    .includes {
+      display: flex;
+      gap: 2rem;
       font-size: 0.9375rem;
       font-weight: 500;
+      .quantity {
+        color: $orange;
+      }
+
+      .item {
+        opacity: 0.5;
+      }
     }
   }
 }
