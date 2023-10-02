@@ -3,6 +3,8 @@ import { useProductStore } from '@/stores/productStore'
 import { ref, watchEffect } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import PrimaryLink from '@/components/PrimaryLink.vue'
+import AddQuantity from '@/components/AddQuantity.vue'
+import InTheBox from '@/components/InTheBox.vue'
 
 const productStore = useProductStore()
 const route = useRoute()
@@ -28,15 +30,12 @@ watchEffect(async () => {
         <p class="description">{{ productStore.product?.description }}</p>
         <p class="price">${{ productStore.product?.price }}</p>
         <div class="add-to-cart-section">
-          <div class="add-to-cart">
-            <button>-</button>
-            <div class="cart-item-number">1</div>
-            <button>+</button>
-          </div>
+          <AddQuantity />
           <PrimaryLink text="add to cart" />
         </div>
       </div>
     </div>
+    <InTheBox />
   </div>
 </template>
 
@@ -90,24 +89,6 @@ watchEffect(async () => {
   .add-to-cart-section {
     display: flex;
     gap: 1rem;
-    .add-to-cart {
-      background-color: $grey;
-      display: flex;
-      align-items: center;
-
-      & > * {
-        padding: 0.8rem 1.5rem;
-      }
-
-      button {
-        font-size: 0.8125rem;
-        font-weight: 700;
-        transition: $transition;
-        &:hover {
-          color: $orange;
-        }
-      }
-    }
   }
 }
 </style>
