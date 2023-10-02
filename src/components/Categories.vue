@@ -66,6 +66,7 @@
   justify-content: center;
   margin-top: 150px;
   margin-bottom: 130px;
+  width: 100%;
 
   @media (max-width: 1150px) {
     padding-inline: 2.5rem;
@@ -76,15 +77,15 @@
   @media (max-width: 850px) {
     gap: 0.65rem;
   }
-  @media (max-width: 600px) {
-    padding-inline: 0.9rem;
-  }
 
   @media (max-width: 745px) {
     gap: 5.5rem;
     grid-template-columns: 1fr;
   }
 
+  @media (max-width: 600px) {
+    padding-inline: 0.9rem;
+  }
   .category {
     position: relative;
     border-radius: 8px;

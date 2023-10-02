@@ -46,6 +46,8 @@ const productStore = useProductStore()
   img {
     border-radius: 8px;
     width: 100%;
+    object-fit: cover;
+    height: 100%;
   }
 }
 </style>
