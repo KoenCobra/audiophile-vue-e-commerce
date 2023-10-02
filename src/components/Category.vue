@@ -29,7 +29,7 @@ const props = defineProps({
 <style lang="scss" scoped>
 @import '../assets/sass/variables.scss';
 .category-hero {
-  height: 336px;
+  height: 250px;
   background-color: $black;
   position: relative;
 
@@ -45,11 +45,7 @@ const props = defineProps({
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translateX(-50%);
-
-    @media (max-width: 1150px) {
-      transform: translate(-50%, -50%);
-    }
+    transform: translate(-50%, -50%);
   }
 }
 

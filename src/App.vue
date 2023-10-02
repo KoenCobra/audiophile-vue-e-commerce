@@ -14,6 +14,8 @@ import Navbar from '@/components/Navbar.vue'
 </script>
 
 <style scoped lang="scss">
+@import './assets/sass/variables.scss';
+
 .about {
   max-width: 1100px;
   margin-inline: auto;
