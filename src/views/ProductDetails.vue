@@ -27,7 +27,14 @@ watchEffect(async () => {
         <h1>{{ productStore.product?.name }}</h1>
         <p class="description">{{ productStore.product?.description }}</p>
         <p class="price">${{ productStore.product?.price }}</p>
-        <PrimaryLink text="add to cart" />
+        <div class="add-to-cart-section">
+          <div class="add-to-cart">
+            <button>-</button>
+            <div class="cart-item-number">1</div>
+            <button>+</button>
+          </div>
+          <PrimaryLink text="add to cart" />
+        </div>
       </div>
     </div>
   </div>
@@ -49,7 +56,7 @@ watchEffect(async () => {
     font-size: 0.9325rem;
     font-weight: 500;
     opacity: 0.5;
-    margin-block: 2rem;
+    margin-top: 1.5rem;
   }
 
   h1 {
@@ -78,6 +85,29 @@ watchEffect(async () => {
   }
   @media (max-width: 600px) {
     padding-inline: 0.9rem;
+  }
+
+  .add-to-cart-section {
+    display: flex;
+    gap: 1rem;
+    .add-to-cart {
+      background-color: $grey;
+      display: flex;
+      align-items: center;
+
+      & > * {
+        padding: 0.8rem 1.5rem;
+      }
+
+      button {
+        font-size: 0.8125rem;
+        font-weight: 700;
+        transition: $transition;
+        &:hover {
+          color: $orange;
+        }
+      }
+    }
   }
 }
 </style>
