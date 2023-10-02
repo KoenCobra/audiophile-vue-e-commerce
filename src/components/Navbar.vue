@@ -2,10 +2,10 @@
   <div class="navbar">
     <div class="navbar-toggle">
       <div class="hamburger">
-        <img src="/images/shared/tablet/icon-hamburger.svg" alt="toggle" />
+        <img loading="lazy" src="/images/shared/tablet/icon-hamburger.svg" alt="toggle" />
       </div>
       <RouterLink to="/">
-        <img src="/images/shared/desktop/logo.svg" alt="logo" />
+        <img loading="lazy" src="/images/shared/desktop/logo.svg" alt="logo" />
       </RouterLink>
     </div>
     <div class="navbar-links">
@@ -13,7 +13,7 @@
     </div>
     <div>
       <RouterLink to="/">
-        <img src="/images/shared/desktop/icon-cart.svg" alt="cart" />
+        <img loading="lazy" src="/images/shared/desktop/icon-cart.svg" alt="cart" />
       </RouterLink>
     </div>
   </div>

@@ -3,6 +3,7 @@
     <RouterLink to="/headphones">
       <div class="category">
         <img
+          loading="lazy"
           class="category-img"
           src="/images/shared/desktop/image-category-thumbnail-headphones.png"
           alt="thumb"
@@ -11,7 +12,7 @@
           <p>headphones</p>
           <div class="category-router-link">
             <span>shop</span>
-            <img src="/images/shared/desktop/icon-arrow-right.svg" alt="thumb" />
+            <img loading="lazy" src="/images/shared/desktop/icon-arrow-right.svg" alt="thumb" />
           </div>
         </div>
       </div>
@@ -19,6 +20,7 @@
     <RouterLink to="/speakers">
       <div class="category">
         <img
+          loading="lazy"
           class="category-img"
           src="/images/shared/desktop/image-category-thumbnail-speakers.png"
           alt="thumb"
@@ -27,7 +29,7 @@
           <p>speakers</p>
           <div class="category-router-link">
             <span> shop </span>
-            <img src="/images/shared/desktop/icon-arrow-right.svg" alt="thumb" />
+            <img loading="lazy" src="/images/shared/desktop/icon-arrow-right.svg" alt="thumb" />
           </div>
         </div>
       </div>
@@ -35,6 +37,7 @@
     <RouterLink to="/earphones">
       <div class="category">
         <img
+          loading="lazy"
           class="category-img"
           src="/images/shared/desktop/image-category-thumbnail-earphones.png"
           alt="thumb"
@@ -43,7 +46,7 @@
           <p>earphones</p>
           <div class="category-router-link">
             <span> shop </span>
-            <img src="/images/shared/desktop/icon-arrow-right.svg" alt="thumb" />
+            <img loading="lazy" src="/images/shared/desktop/icon-arrow-right.svg" alt="thumb" />
           </div>
         </div>
       </div>

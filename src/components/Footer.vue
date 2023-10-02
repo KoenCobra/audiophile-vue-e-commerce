@@ -3,7 +3,7 @@
     <div class="footer-links">
       <div>
         <RouterLink to="/" @click="scrollToTop">
-          <img src="/images/shared/desktop/logo.svg" alt="logo" />
+          <img loading="lazy" src="/images/shared/desktop/logo.svg" alt="logo" />
         </RouterLink>
       </div>
       <NavLinks />

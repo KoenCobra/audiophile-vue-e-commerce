@@ -18,9 +18,11 @@ import Navbar from '@/components/Navbar.vue'
   max-width: 1100px;
   margin-inline: auto;
   margin-top: 150px;
+
   @media (max-width: 1150px) {
     padding-inline: 1.25rem;
   }
+
   @media (max-width: 600px) {
     padding-inline: 0.45rem;
   }
