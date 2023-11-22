@@ -1,6 +1,4 @@
-<script lang="ts" setup>
-import Categories from '@/components/Categories.vue'
-</script>
+<script lang="ts" setup></script>
 
 <template>
   <RouterView />

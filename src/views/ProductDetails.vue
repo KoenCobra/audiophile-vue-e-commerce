@@ -7,6 +7,7 @@ import AddQuantity from '@/components/AddQuantity.vue'
 import InTheBox from '@/components/InTheBox.vue'
 import Gallery from '@/components/Gallery.vue'
 import Categories from '@/components/Categories.vue'
+import OtherProducts from '@/components/OtherProducts.vue'
 
 const productStore = useProductStore()
 const route = useRoute()
@@ -39,16 +40,17 @@ watchEffect(async () => {
     </div>
     <InTheBox />
     <Gallery />
+    <OtherProducts />
     <Categories />
   </div>
 </template>
 
 <style lang="scss" scoped>
 @import '../assets/sass/variables.scss';
+
 .product-details {
   max-width: 1100px;
   margin-inline: auto;
-
   display: flex;
   flex-direction: column;
   gap: 1.5rem;

@@ -27,7 +27,6 @@ onMounted(async () => {
 .about {
   max-width: 1100px;
   margin-inline: auto;
-  margin-top: 150px;
 
   @media (max-width: 1150px) {
     padding-inline: 1.25rem;
