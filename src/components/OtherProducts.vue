@@ -4,7 +4,7 @@ import { storeToRefs } from 'pinia'
 import PrimaryLink from './PrimaryLink.vue'
 
 const productStore = useProductStore()
-const { product } = storeToRefs(productStore)
+const { product, products } = storeToRefs(productStore)
 </script>
 
 <template>
@@ -13,7 +13,11 @@ const { product } = storeToRefs(productStore)
     <div v-for="(item, index) in product?.others" :key="index" class="other-product">
       <img :src="`/${item.image.desktop}`" alt="other" />
       <h3>{{ item.name }}</h3>
-      <PrimaryLink />
+      <PrimaryLink
+        :href="`/products/${products?.find((p) => p.slug === item.slug)?.category}/${
+          products?.find((p) => p.slug === item.slug)?.id
+        }`"
+      />
     </div>
   </div>
 </template>
