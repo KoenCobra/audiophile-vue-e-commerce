@@ -1,10 +1,24 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import { useCartStore } from '@/stores/cartStore'
+
+const cartStore = useCartStore()
+
+const increaseQuantity = () => {
+  cartStore.cartItemQuantity++
+}
+
+const decreaseQuantity = () => {
+  if (cartStore.cartItemQuantity > 1) {
+    cartStore.cartItemQuantity--
+  }
+}
+</script>
 
 <template>
   <div class="add-to-cart">
-    <button>-</button>
-    <div class="cart-item-number">1</div>
-    <button>+</button>
+    <button @click="decreaseQuantity">-</button>
+    <div class="cart-item-number">{{ cartStore.cartItemQuantity }}</div>
+    <button @click="increaseQuantity">+</button>
   </div>
 </template>
 
@@ -24,6 +38,8 @@
     font-size: 0.8125rem;
     font-weight: 700;
     transition: $transition;
+    color: $black;
+    opacity: 0.25;
     &:hover {
       color: $orange;
     }

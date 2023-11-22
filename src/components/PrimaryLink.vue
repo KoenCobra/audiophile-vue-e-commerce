@@ -12,7 +12,6 @@ const props = defineProps({
   },
   cssClass: {
     type: String,
-
     default: 'primary-btn'
   },
   isBlack: {

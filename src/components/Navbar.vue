@@ -13,9 +13,9 @@
         <NavLinks />
       </div>
       <div>
-        <RouterLink to="/">
+        <button @click="cartStore.isCartVisible = true">
           <img loading="lazy" src="/images/shared/desktop/icon-cart.svg" alt="cart" />
-        </RouterLink>
+        </button>
       </div>
     </div>
   </div>
@@ -25,8 +25,10 @@
 import { useRoute } from 'vue-router'
 import NavLinks from './NavLinks.vue'
 import { ref, watch } from 'vue'
+import { useCartStore } from '@/stores/cartStore'
 
 const route = useRoute()
+const cartStore = useCartStore()
 const isHomeRoute = ref(route.path === '/')
 
 watch(route, (newRoute) => {

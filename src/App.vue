@@ -1,5 +1,6 @@
 <template>
   <Navbar />
+  <CartPopup />
   <RouterView />
   <div class="about">
     <About />
@@ -13,6 +14,7 @@ import About from '@/components/About.vue'
 import Navbar from '@/components/Navbar.vue'
 import { onMounted } from 'vue'
 import { useProductStore } from './stores/productStore'
+import CartPopup from './components/CartPopup.vue'
 
 const productStore = useProductStore()
 

@@ -8,16 +8,33 @@ import InTheBox from '@/components/InTheBox.vue'
 import Gallery from '@/components/Gallery.vue'
 import Categories from '@/components/Categories.vue'
 import OtherProducts from '@/components/OtherProducts.vue'
+import type { CartItem } from '@/types/product'
+import { useCartStore } from '@/stores/cartStore'
 
 const productStore = useProductStore()
+const cartStore = useCartStore()
 const route = useRoute()
 const productId = ref()
 const router = useRouter()
+const totalPrice = ref(0)
 
 watchEffect(async () => {
   productId.value = route.params.id
   await productStore.getProduct(productId.value)
 })
+
+const addToCart = () => {
+  totalPrice.value = (productStore.product?.price || 0) * cartStore.cartItemQuantity
+
+  const cartItem: CartItem = {
+    id: crypto.randomUUID(),
+    productName: productStore.product?.name || '',
+    price: totalPrice.value,
+    productImage: productStore.product?.image.mobile || '',
+    amount: cartStore.cartItemQuantity
+  }
+  cartStore.addToCart(cartItem)
+}
 </script>
 
 <template>
@@ -34,7 +51,7 @@ watchEffect(async () => {
         <p class="price">${{ productStore.product?.price }}</p>
         <div class="add-to-cart-section">
           <AddQuantity />
-          <PrimaryLink text="add to cart" />
+          <PrimaryLink @click="addToCart" text="add to cart" />
         </div>
       </div>
     </div>
