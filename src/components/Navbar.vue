@@ -1,7 +1,7 @@
 <template>
   <div class="navbar-section">
     <div class="navbar" :class="{ 'home-navbar': isHomeRoute }">
-      <div class="navbar-toggle">
+      <div @click="isMobileMenuVisible = !isMobileMenuVisible" class="navbar-toggle">
         <div class="hamburger">
           <img loading="lazy" src="/images/shared/tablet/icon-hamburger.svg" alt="toggle" />
         </div>
@@ -24,6 +24,12 @@
       </div>
     </div>
   </div>
+  <div @click="isMobileMenuVisible = false" v-if="isMobileMenuVisible" class="mobile-nav-menu">
+    <div class="overlay"></div>
+    <div class="nav-menu">
+      <MobileNavMenu />
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -31,10 +37,12 @@ import { useRoute } from 'vue-router'
 import NavLinks from './NavLinks.vue'
 import { ref, watch } from 'vue'
 import { useCartStore } from '@/stores/cartStore'
+import MobileNavMenu from './MobileNavMenu.vue'
 
 const route = useRoute()
 const cartStore = useCartStore()
 const isHomeRoute = ref(route.path === '/')
+const isMobileMenuVisible = ref(false)
 
 watch(route, (newRoute) => {
   isHomeRoute.value = newRoute.path === '/'
@@ -62,6 +70,10 @@ watch(route, (newRoute) => {
 
     .navbar {
       border: 0 !important;
+    }
+
+    .mobile-nav-menu {
+      display: block;
     }
   }
 
@@ -127,6 +139,30 @@ watch(route, (newRoute) => {
         font-size: 0.75rem;
       }
     }
+  }
+}
+
+.mobile-nav-menu {
+  display: block;
+
+  @media (min-width: 1150px) {
+    display: none;
+  }
+
+  .overlay {
+    position: fixed;
+    inset: 0;
+    top: 97px;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+
+  .nav-menu {
+    width: 100%;
+    top: 97px;
+    background-color: $white;
+    position: absolute;
+    z-index: 11;
   }
 }
 

@@ -110,6 +110,7 @@ const addToCart = () => {
       align-self: start;
     }
   }
+
   @media (max-width: 600px) {
     padding-inline: 0.9rem;
   }
