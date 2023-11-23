@@ -7,18 +7,19 @@ export const useCartStore = defineStore('cart', () => {
   const cartItemQuantity = ref(1)
   const isCartVisible = ref(false)
   const cartTotal = ref(0)
+  const currentCartItem = ref<CartItem>()
 
   const addToCart = (cartItem: CartItem) => {
-    console.log(cartItem)
-    console.log(cart.value)
+    currentCartItem.value = cart.value.find((item) => item.productID === cartItem.productID)
 
-    const cartItemToAdd = cart.value.filter((item) => item.id === cartItem.id)
-    console.log(cartItemToAdd)
+    console.log('currentCartItem', currentCartItem)
 
-    if (cartItemToAdd) {
+    if (currentCartItem.value) {
+      currentCartItem.value.amount += cartItem.amount
+      currentCartItem.value.price += cartItem.price
+    } else {
+      cart.value.push(cartItem)
     }
-    cart.value.push(cartItem)
-    cartTotal.value += cartItem.price
   }
 
   const removeFromCart = (cartItem: CartItem) => {

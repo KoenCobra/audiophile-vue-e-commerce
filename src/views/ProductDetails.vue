@@ -16,7 +16,6 @@ const cartStore = useCartStore()
 const route = useRoute()
 const productId = ref()
 const router = useRouter()
-const totalPrice = ref(0)
 
 watchEffect(async () => {
   productId.value = route.params.id
@@ -24,12 +23,10 @@ watchEffect(async () => {
 })
 
 const addToCart = () => {
-  totalPrice.value = (productStore.product?.price || 0) * cartStore.cartItemQuantity
-
   const cartItem: CartItem = {
-    id: crypto.randomUUID(),
+    productID: productStore.product?.id || 0,
     productName: productStore.product?.name || '',
-    price: totalPrice.value,
+    price: productStore.product?.price || 0,
     productImage: productStore.product?.image.mobile || '',
     amount: cartStore.cartItemQuantity
   }

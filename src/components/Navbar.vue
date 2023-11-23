@@ -12,10 +12,15 @@
       <div class="navbar-links">
         <NavLinks />
       </div>
-      <div>
+      <div class="navbar-cart">
         <button @click="cartStore.isCartVisible = true">
           <img loading="lazy" src="/images/shared/desktop/icon-cart.svg" alt="cart" />
         </button>
+        <div v-if="cartStore.cart.length" class="cart-notification">
+          <p>
+            {{ cartStore.cart.length }}
+          </p>
+        </div>
       </div>
     </div>
   </div>
@@ -100,6 +105,39 @@ watch(route, (newRoute) => {
         display: none;
       }
     }
+  }
+
+  .navbar-cart {
+    position: relative;
+
+    .cart-notification {
+      position: absolute;
+      background-color: red;
+      height: 20px;
+      width: 20px;
+      border-radius: 50%;
+      display: grid;
+      place-content: center;
+      top: -10px;
+      right: -5px;
+      animation: slideUp 0.2s ease-in-out;
+      p {
+        color: white;
+        font-weight: 700;
+        font-size: 0.75rem;
+      }
+    }
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 </style>
