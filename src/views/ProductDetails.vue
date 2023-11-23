@@ -26,7 +26,7 @@ const addToCart = () => {
   const cartItem: CartItem = {
     productID: productStore.product?.id || 0,
     productName: productStore.product?.name || '',
-    price: productStore.product?.price || 0,
+    price: (productStore.product?.price || 0) * quantity.value,
     productImage: productStore.product?.image.mobile || '',
     quantity: quantity.value
   }
