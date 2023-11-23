@@ -1,90 +1,141 @@
 <script lang="ts" setup>
 import InputText from 'primevue/inputtext'
 import RadioButton from 'primevue/radiobutton'
+import * as Yup from 'yup'
+
+import { useForm } from 'vee-validate'
 import { ref } from 'vue'
 
 const paymentType = ref('e-Money')
+
+const schema = Yup.object().shape({
+  name: Yup.string().required(),
+  email: Yup.string().email().required(),
+  phone: Yup.string().required(),
+  address: Yup.string().required(),
+  zipCode: Yup.string().required(),
+  city: Yup.string().required(),
+  country: Yup.string().required()
+})
+
+const { defineComponentBinds, errors, handleSubmit, isSubmitting, setFieldValue } = useForm({
+  validationSchema: schema
+})
+
+const name = defineComponentBinds('name')
+const email = defineComponentBinds('email')
+const phone = defineComponentBinds('phone')
+const address = defineComponentBinds('address')
+const zipCode = defineComponentBinds('zipCode')
+const city = defineComponentBinds('city')
+const country = defineComponentBinds('country')
+
+const onSubmit = handleSubmit(() => {})
 </script>
 
 <template>
-  <div class="checkout-form-section">
-    <h1>Checkout</h1>
-    <div class="checkout-form">
-      <div class="form-inputs">
-        <h4>Billing details</h4>
-        <div class="form-grid">
-          <div>
-            <label>Name</label>
-            <InputText type="text" placeholder="Alexei Ward" />
-          </div>
-          <div>
-            <label>Email Address</label>
-            <InputText type="text" placeholder="alexei@mail.com" />
-          </div>
-          <div>
-            <label>Phone Number </label>
-            <InputText type="text" placeholder="+1 202-555-0136" />
-          </div>
-        </div>
-      </div>
-      <div class="form-inputs">
-        <h4>Shipping info</h4>
-        <div class="form-grid">
-          <div class="form-input address">
-            <label>Address</label>
-            <InputText type="text" placeholder="1137 Williams Avenue" />
-          </div>
-          <div>
-            <label>ZIP Code</label>
-            <InputText type="text" placeholder="10001" />
-          </div>
-          <div>
-            <label>City</label>
-            <InputText type="text" placeholder="New York" />
-          </div>
-          <div>
-            <label>Country</label>
-            <InputText type="text" placeholder="United States" />
-          </div>
-        </div>
-      </div>
-      <div class="form-inputs">
-        <h4>Payment details</h4>
-        <div class="form-grid">
-          <div>
-            <label>Payment Method</label>
-          </div>
-          <div class="radio-inputs">
-            <div class="radio-input">
-              <RadioButton v-model="paymentType" name="e-Money" value="e-Money" />
-              <label>e-Money</label>
+  <form @submit.prevent="onSubmit">
+    <div class="checkout-form-section">
+      <h1>Checkout</h1>
+      <div class="checkout-form">
+        <div class="form-inputs">
+          <h4>Billing details</h4>
+          <div class="form-grid">
+            <div>
+              <div class="label">
+                <label>Name</label>
+                <span v-if="errors.name" class="error">{{ errors.name }}</span>
+              </div>
+              <InputText v-bind="name" type="text" placeholder="Alexei Ward" />
             </div>
-            <div class="radio-input">
-              <RadioButton v-model="paymentType" name="Cash on Delivery" value="cash" />
-              <label>Cash on Delivery</label>
+            <div>
+              <div class="label">
+                <label>Email Address</label>
+                <span v-if="errors.email" class="error">{{ errors.email }}</span>
+              </div>
+              <InputText v-bind="email" type="text" placeholder="alexei@mail.com" />
+            </div>
+            <div>
+              <div class="label">
+                <label>Phone Number </label>
+                <span v-if="errors.phone" class="error">{{ errors.phone }}</span>
+              </div>
+              <InputText v-bind="phone" type="text" placeholder="+1 202-555-0136" />
             </div>
           </div>
+        </div>
+        <div class="form-inputs">
+          <h4>Shipping info</h4>
+          <div class="form-grid">
+            <div class="form-input address">
+              <div class="label">
+                <label>Address</label>
+                <span v-if="errors.address" class="error">{{ errors.address }}</span>
+              </div>
+              <InputText v-bind="address" type="text" placeholder="1137 Williams Avenue" />
+            </div>
+            <div>
+              <div class="label">
+                <label>ZIP Code</label>
+                <span v-if="errors.zipCode" class="error">{{ errors.zipCode }}</span>
+              </div>
+              <InputText v-bind="zipCode" type="text" placeholder="10001" />
+            </div>
+            <div>
+              <div class="label">
+                <label>City</label>
+                <span v-if="errors.city" class="error">{{ errors.city }}</span>
+              </div>
+              <InputText v-bind="city" type="text" placeholder="New York" />
+            </div>
+            <div>
+              <div class="label">
+                <label>Country</label>
+                <span v-if="errors.country" class="error">{{ errors.country }}</span>
+              </div>
+              <InputText v-bind="country" type="text" placeholder="United States" />
+            </div>
+          </div>
+        </div>
+        <div class="form-inputs">
+          <h4>Payment details</h4>
+          <div class="form-grid">
+            <div>
+              <label>Payment Method</label>
+            </div>
+            <div class="radio-inputs">
+              <div class="radio-input">
+                <RadioButton v-model="paymentType" name="e-Money" value="e-Money" />
+                <label>e-Money</label>
+              </div>
+              <div class="radio-input">
+                <RadioButton v-model="paymentType" name="Cash on Delivery" value="cash" />
+                <label>Cash on Delivery</label>
+              </div>
+            </div>
 
-          <div v-if="paymentType === 'e-Money'">
-            <label>e-Money Number</label>
-            <InputText type="text" placeholder="238521993" />
-          </div>
-          <div v-if="paymentType === 'e-Money'">
-            <label>e-Money PIN</label>
-            <InputText type="text" placeholder="6891" />
-          </div>
-          <div class="cash" v-if="paymentType === 'cash'">
-            <img src="/public/images/checkout/icon-cash-on-delivery.svg" alt="" />
-            <p>
-              The ‘Cash on Delivery’ option enables you to pay in cash when our delivery courier
-              arrives at your residence. Just make sure your address is correct so that your order
-              will not be cancelled.
-            </p>
+            <div v-if="paymentType === 'e-Money'">
+              <label>e-Money Number</label>
+              <InputText type="text" placeholder="238521993" />
+            </div>
+            <div v-if="paymentType === 'e-Money'">
+              <label>e-Money PIN</label>
+              <InputText type="text" placeholder="6891" />
+            </div>
+            <div class="cash" v-if="paymentType === 'cash'">
+              <img src="/public/images/checkout/icon-cash-on-delivery.svg" alt="" />
+              <p>
+                The ‘Cash on Delivery’ option enables you to pay in cash when our delivery courier
+                arrives at your residence. Just make sure your address is correct so that your order
+                will not be cancelled.
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+    <button type="submit">submit</button>
+  </form>
 </template>
 
 <style lang="scss" scoped>
@@ -186,6 +237,18 @@ const paymentType = ref('e-Money')
       font-weight: 500;
       opacity: 0.5;
     }
+  }
+
+  .error {
+    color: #cd2c2c;
+    margin-left: auto;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: -0.214px;
+  }
+
+  .label {
+    display: flex;
   }
 }
 </style>

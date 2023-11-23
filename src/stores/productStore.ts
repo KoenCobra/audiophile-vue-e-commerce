@@ -9,8 +9,6 @@ export const useProductStore = defineStore('product', () => {
 
   const getProducts = async () => {
     products.value = (await axios.get('/data.json')).data
-
-    console.log(products.value)
   }
 
   const getProduct = async (id: number) => {
