@@ -1,9 +1,11 @@
 <script lang="ts" setup>
 import Navbar from '@/components/Navbar.vue'
+import CartPopup from '@/components/CartPopup.vue'
 </script>
 
 <template>
   <Navbar />
+  <CartPopup />
   <div class="checkout-layout">
     <slot />
   </div>

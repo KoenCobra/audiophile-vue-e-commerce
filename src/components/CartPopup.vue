@@ -18,7 +18,7 @@ const cartStore = useCartStore()
         <div class="cart-item" v-for="(item, index) in cartStore.cart" :key="index">
           <img loading="lazy" :src="`/${item.productImage}`" alt="img" />
           <div class="cart-item-details">
-            <p>{{ item.productName }}</p>
+            <p>{{ item.productName.replace(/Headphones|Speaker|Earphones/g, '') }}</p>
             <span>${{ item.price }}</span>
           </div>
           <div class="add-to-cart">
