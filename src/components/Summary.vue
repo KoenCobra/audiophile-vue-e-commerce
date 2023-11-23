@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { useCartStore } from '@/stores/cartStore'
+import PrimaryLink from './PrimaryLink.vue'
 const cartStore = useCartStore()
 </script>
 
@@ -17,6 +18,28 @@ const cartStore = useCartStore()
           <p>x{{ item.quantity }}</p>
         </div>
       </div>
+    </div>
+    <div class="totals">
+      <div class="total">
+        <p>Total</p>
+        <span>${{ cartStore.cartTotal }}</span>
+      </div>
+      <div class="total">
+        <p>Shipping</p>
+        <span>$50</span>
+      </div>
+      <div class="total">
+        <p>VAT (INCLUDED)</p>
+        <span>${{ Math.floor((cartStore.cartTotal / 100) * 21) }}</span>
+      </div>
+      <div class="total grand-total">
+        <p>Grand Total</p>
+        <span>${{ cartStore.cartTotal + 50 }}</span>
+      </div>
+    </div>
+
+    <div class="checkout-btn">
+      <PrimaryLink text="continue & pay" />
     </div>
   </div>
 </template>
@@ -70,6 +93,45 @@ const cartStore = useCartStore()
         opacity: 0.5;
         font-size: 0.9375rem;
       }
+    }
+  }
+
+  .totals {
+    display: grid;
+    gap: 0.5rem;
+    margin-block: 2rem;
+
+    .total {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      p {
+        opacity: 0.5;
+        font-size: 0.9375rem;
+        font-weight: 500;
+        text-transform: uppercase;
+      }
+
+      span {
+        font-size: 1.125rem;
+        font-weight: 700;
+      }
+
+      &.grand-total {
+        margin-top: 1rem;
+        span {
+          color: $orange;
+        }
+      }
+    }
+  }
+
+  .checkout-btn {
+    .primary-btn {
+      display: block;
+      text-align: center;
+      width: 100% !important;
     }
   }
 }
