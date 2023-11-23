@@ -3,7 +3,6 @@ import { useProductStore } from '@/stores/productStore'
 import { ref, watchEffect } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import PrimaryLink from '@/components/PrimaryLink.vue'
-import AddQuantity from '@/components/AddQuantity.vue'
 import InTheBox from '@/components/InTheBox.vue'
 import Gallery from '@/components/Gallery.vue'
 import Categories from '@/components/Categories.vue'
@@ -16,6 +15,7 @@ const cartStore = useCartStore()
 const route = useRoute()
 const productId = ref()
 const router = useRouter()
+const quantity = ref(1)
 
 watchEffect(async () => {
   productId.value = route.params.id
@@ -28,9 +28,10 @@ const addToCart = () => {
     productName: productStore.product?.name || '',
     price: productStore.product?.price || 0,
     productImage: productStore.product?.image.mobile || '',
-    amount: cartStore.cartItemQuantity
+    quantity: quantity.value
   }
   cartStore.addToCart(cartItem)
+  quantity.value = 1
 }
 </script>
 
@@ -47,7 +48,11 @@ const addToCart = () => {
         <p class="description">{{ productStore.product?.description }}</p>
         <p class="price">${{ productStore.product?.price }}</p>
         <div class="add-to-cart-section">
-          <AddQuantity />
+          <div class="add-to-cart">
+            <button @click="quantity > 1 ? quantity-- : quantity">-</button>
+            <div class="cart-item-number">{{ quantity }}</div>
+            <button @click="quantity++">+</button>
+          </div>
           <PrimaryLink @click="addToCart" text="add to cart" />
         </div>
       </div>

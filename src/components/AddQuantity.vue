@@ -22,27 +22,4 @@ const decreaseQuantity = () => {
   </div>
 </template>
 
-<style lang="scss" scoped>
-@import '../assets/sass/variables.scss';
-
-.add-to-cart {
-  background-color: $grey;
-  display: flex;
-  align-items: center;
-
-  & > * {
-    padding: 0.8rem 1.5rem;
-  }
-
-  button {
-    font-size: 0.8125rem;
-    font-weight: 700;
-    transition: $transition;
-    color: $black;
-    opacity: 0.25;
-    &:hover {
-      color: $orange;
-    }
-  }
-}
-</style>
+<style lang="scss" scoped></style>

@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import { useCartStore } from '@/stores/cartStore'
-import AddQuantity from './AddQuantity.vue'
 import PrimaryLink from './PrimaryLink.vue'
 
 const cartStore = useCartStore()
@@ -22,7 +21,11 @@ const cartStore = useCartStore()
             <p>{{ item.productName }}</p>
             <span>${{ item.price }}</span>
           </div>
-          <AddQuantity />
+          <div class="add-to-cart">
+            <button @click="cartStore.decreaseQuantityFromCartItem(item)">-</button>
+            <div class="cart-item-number">{{ item.quantity }}</div>
+            <button @click="item.quantity++">+</button>
+          </div>
         </div>
       </div>
       <div class="total">
