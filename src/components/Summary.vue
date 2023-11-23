@@ -12,7 +12,7 @@ const cartStore = useCartStore()
         <img :src="` /${item.productImage}`" alt="img" />
         <div class="cart-items-detail">
           <p>{{ item.productName.replace(/Headphones|Speaker|Earphones/g, '') }}</p>
-          <span>${{ item.price }}</span>
+          <span>$ {{ item.price }}</span>
         </div>
         <div class="cart-items-quantity">
           <p>x{{ item.quantity }}</p>
@@ -22,11 +22,11 @@ const cartStore = useCartStore()
     <div class="totals">
       <div class="total">
         <p>Total</p>
-        <span>${{ cartStore.cartTotal }}</span>
+        <span>$ {{ cartStore.cartTotal }}</span>
       </div>
       <div class="total">
         <p>Shipping</p>
-        <span>$50</span>
+        <span>$ 50</span>
       </div>
       <div class="total">
         <p>VAT (INCLUDED)</p>
@@ -34,7 +34,7 @@ const cartStore = useCartStore()
       </div>
       <div class="total grand-total">
         <p>Grand Total</p>
-        <span>${{ cartStore.cartTotal + 50 }}</span>
+        <span>$ {{ cartStore.cartTotal + 50 }}</span>
       </div>
     </div>
 

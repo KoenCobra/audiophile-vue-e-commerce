@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import BackButton from '@/components/BackButton.vue'
+import CheckoutForm from '@/components/CheckoutForm.vue'
 import Summary from '@/components/Summary.vue'
 </script>
 
@@ -9,13 +10,8 @@ import Summary from '@/components/Summary.vue'
       <BackButton />
     </div>
     <div class="checkout-details">
-      <div class="checkout-form">
-        <h1>Checkout</h1>
-        <h4>Billing details</h4>
-      </div>
-      <div class="checkout-summary">
-        <Summary />
-      </div>
+      <CheckoutForm />
+      <Summary />
     </div>
   </div>
 </template>
