@@ -30,7 +30,9 @@ const addToCart = () => {
     productImage: productStore.product?.image.mobile || '',
     quantity: quantity.value
   }
+
   cartStore.addToCart(cartItem)
+
   quantity.value = 1
 }
 </script>

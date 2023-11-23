@@ -24,7 +24,7 @@ const cartStore = useCartStore()
           <div class="add-to-cart">
             <button @click="cartStore.decreaseQuantityFromCartItem(item)">-</button>
             <div class="cart-item-number">{{ item.quantity }}</div>
-            <button @click="item.quantity++">+</button>
+            <button @click="cartStore.increaseQuantityFromCartItem(item)">+</button>
           </div>
         </div>
       </div>

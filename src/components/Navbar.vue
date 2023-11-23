@@ -12,8 +12,8 @@
       <div class="navbar-links">
         <NavLinks />
       </div>
-      <div class="navbar-cart">
-        <button @click="cartStore.isCartVisible = true">
+      <div @click="cartStore.isCartVisible = true" class="navbar-cart">
+        <button>
           <img loading="lazy" src="/images/shared/desktop/icon-cart.svg" alt="cart" />
         </button>
         <div v-if="cartStore.cart.length" class="cart-notification">
