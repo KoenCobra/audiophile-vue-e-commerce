@@ -124,7 +124,7 @@ watch(route, (newRoute) => {
 
     .cart-notification {
       position: absolute;
-      background-color: red;
+      background-color: $orange;
       height: 20px;
       width: 20px;
       border-radius: 50%;
@@ -133,6 +133,8 @@ watch(route, (newRoute) => {
       top: -10px;
       right: -5px;
       animation: slideUp 0.2s ease-in-out;
+      cursor: pointer;
+
       p {
         color: white;
         font-weight: 700;

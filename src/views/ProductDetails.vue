@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { useProductStore } from '@/stores/productStore'
 import { ref, watchEffect } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
+import { useRoute } from 'vue-router'
 import PrimaryLink from '@/components/PrimaryLink.vue'
 import InTheBox from '@/components/InTheBox.vue'
 import Gallery from '@/components/Gallery.vue'
@@ -9,12 +9,12 @@ import Categories from '@/components/Categories.vue'
 import OtherProducts from '@/components/OtherProducts.vue'
 import type { CartItem } from '@/types/product'
 import { useCartStore } from '@/stores/cartStore'
+import BackButton from '@/components/BackButton.vue'
 
 const productStore = useProductStore()
 const cartStore = useCartStore()
 const route = useRoute()
 const productId = ref()
-const router = useRouter()
 const quantity = ref(1)
 
 watchEffect(async () => {
@@ -39,7 +39,7 @@ const addToCart = () => {
 
 <template>
   <div class="product-details">
-    <button class="back-btn" @click="router.back()">Go Back</button>
+    <BackButton />
     <div class="category-product">
       <div>
         <img loading="lazy" :src="`/${productStore.product?.image.desktop}`" alt="img" />
