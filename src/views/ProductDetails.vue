@@ -78,14 +78,6 @@ const addToCart = () => {
   align-items: flex-start;
   order: 0 !important;
 
-  .back-btn {
-    color: #000;
-    font-size: 0.9325rem;
-    font-weight: 500;
-    opacity: 0.5;
-    margin-top: 1.5rem;
-  }
-
   h1 {
     margin-bottom: 0;
   }

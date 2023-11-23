@@ -20,13 +20,15 @@ import Summary from '@/components/Summary.vue'
 @import '../assets/sass/variables.scss';
 
 .checkout-page {
+  padding-bottom: 4rem;
   .back-btn {
-    padding-block: 1.5rem;
+    margin-bottom: 1rem;
   }
 
   .checkout-details {
     display: grid;
     grid-template-columns: 70% 30%;
+    gap: 2.5rem;
   }
 }
 </style>

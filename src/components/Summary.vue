@@ -30,7 +30,7 @@ const cartStore = useCartStore()
       </div>
       <div class="total">
         <p>VAT (INCLUDED)</p>
-        <span>${{ Math.floor((cartStore.cartTotal / 100) * 21) }}</span>
+        <span>$ {{ Math.floor((cartStore.cartTotal / 100) * 21) }}</span>
       </div>
       <div class="total grand-total">
         <p>Grand Total</p>
@@ -49,7 +49,9 @@ const cartStore = useCartStore()
 
 .summary {
   background-color: $white;
-  padding: 1.5rem;
+  padding: 2rem;
+  border-radius: 8px;
+  height: fit-content;
 
   h2 {
     margin-bottom: 2rem;

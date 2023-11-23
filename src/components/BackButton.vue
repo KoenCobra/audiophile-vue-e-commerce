@@ -8,4 +8,14 @@ const router = useRouter()
   <button class="back-btn" @click="router.back()">Go Back</button>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+@import '../assets/sass/variables.scss';
+
+.back-btn {
+  color: $black;
+  font-size: 0.9325rem;
+  font-weight: 500;
+  opacity: 0.5;
+  margin-top: 1.5rem;
+}
+</style>
