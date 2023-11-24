@@ -1,3 +1,13 @@
 @import 'reset.scss';
 @import 'product.scss';
 @import 'addToCart.scss';
+@import 'summaryCartItems.scss';
+
+.p-dialog-header,
+.p-dialog-content {
+  padding: 2rem !important;
+}
+
+.p-dialog-header-icon {
+  display: none;
+}

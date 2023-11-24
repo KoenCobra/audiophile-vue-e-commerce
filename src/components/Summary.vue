@@ -39,7 +39,7 @@ const cartStore = useCartStore()
     </div>
 
     <div class="checkout-btn">
-      <PrimaryLink text="continue & pay" />
+      <PrimaryLink @click="$emit('submit-checkout')" text="continue & pay" />
     </div>
   </div>
 </template>
@@ -55,47 +55,6 @@ const cartStore = useCartStore()
 
   h2 {
     margin-bottom: 2rem;
-  }
-
-  .summary-cart-items {
-    display: grid;
-    gap: 1.5rem;
-
-    .summary-cart-item {
-      display: flex;
-      gap: 0.5rem;
-      justify-content: space-between;
-      align-items: center;
-
-      img {
-        width: 64px;
-        height: 64px;
-        border-radius: 8px;
-      }
-
-      .cart-items-detail {
-        display: flex;
-        flex-direction: column;
-        justify-self: start;
-        flex-grow: 1;
-        font-weight: 700;
-
-        p {
-          font-size: 0.9375rem;
-        }
-
-        span {
-          font-size: 0.8125rem;
-          opacity: 0.5;
-        }
-      }
-
-      .cart-items-quantity {
-        font-weight: 700;
-        opacity: 0.5;
-        font-size: 0.9375rem;
-      }
-    }
   }
 
   .totals {

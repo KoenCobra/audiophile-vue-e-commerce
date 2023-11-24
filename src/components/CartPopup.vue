@@ -32,7 +32,11 @@ const cartStore = useCartStore()
         <p>Total</p>
         <span>$ {{ cartStore.cartTotal }}</span>
       </div>
-      <div @click="cartStore.isCartVisible = false" class="checkout-btn">
+      <div
+        @click="cartStore.isCartVisible = false"
+        class="checkout-btn"
+        :style="cartStore.cart.length ? '' : 'display: none;'"
+      >
         <PrimaryLink text="checkout" :href="'/checkout'" />
       </div>
     </div>

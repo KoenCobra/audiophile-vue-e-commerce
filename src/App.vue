@@ -7,10 +7,15 @@
 <script setup lang="ts">
 import { onMounted } from 'vue'
 import { useProductStore } from './stores/productStore'
+import { useCartStore } from './stores/cartStore'
+
+const cartStore = useCartStore()
 
 const productStore = useProductStore()
 
 onMounted(async () => {
   await productStore.getProducts()
+  cartStore.cart = JSON.parse(localStorage.getItem('cart') || '[]')
+  cartStore.cartTotal = JSON.parse(localStorage.getItem('cartTotal') || '0')
 })
 </script>

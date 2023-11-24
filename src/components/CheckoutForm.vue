@@ -2,26 +2,43 @@
 import InputText from 'primevue/inputtext'
 import RadioButton from 'primevue/radiobutton'
 import * as Yup from 'yup'
-
+import { useCartStore } from '@/stores/cartStore'
 import { useForm } from 'vee-validate'
-import { ref } from 'vue'
+import { computed, ref, watchEffect } from 'vue'
 
 const paymentType = ref('e-Money')
+const cartStore = useCartStore()
+const validationSchema = ref()
 
-const schema = Yup.object().shape({
-  name: Yup.string().required('Name is required'),
-  email: Yup.string().email('Wrong format').required('Email is required'),
-  phone: Yup.number().typeError('Should be a number').required('Phone is required'),
-  address: Yup.string().required('Address is required'),
-  zipCode: Yup.number().required('Zip code is required'),
-  city: Yup.string().required('City is required'),
-  country: Yup.string().required('Country is required'),
-  eMoney: Yup.number().typeError('Should be a number').required('e-Money number is required'),
-  eMoneyPin: Yup.number().typeError('Should be a number').required('e-Money pin is required')
+watchEffect(() => {
+  validationSchema.value = computed(() => {
+    const baseSchema = {
+      name: Yup.string().required('Name is required'),
+      email: Yup.string().email('Wrong format').required('Email is required'),
+      phone: Yup.number().typeError('Should be a number').required('Phone is required'),
+      address: Yup.string().required('Address is required'),
+      zipCode: Yup.number().typeError('Should be a number').required('Zip code is required'),
+      city: Yup.string().required('City is required'),
+      country: Yup.string().required('Country is required'),
+      eMoney: Yup.number(),
+      eMoneyPin: Yup.number()
+    }
+
+    if (paymentType.value === 'e-Money') {
+      baseSchema.eMoney = Yup.number()
+        .typeError('Should be a number')
+        .required('e-Money number is required')
+      baseSchema.eMoneyPin = Yup.number()
+        .typeError('Should be a number')
+        .required('e-Money pin is required')
+    }
+
+    return Yup.object().shape(baseSchema)
+  })
 })
 
 const { defineComponentBinds, errors, handleSubmit } = useForm({
-  validationSchema: schema
+  validationSchema: validationSchema.value
 })
 
 const name = defineComponentBinds('name')
@@ -34,7 +51,11 @@ const country = defineComponentBinds('country')
 const eMoney = defineComponentBinds('eMoney')
 const eMoneyPin = defineComponentBinds('eMoneyPin')
 
-const onSubmit = handleSubmit(() => {})
+const onSubmit = handleSubmit(() => {
+  cartStore.dialogVisible = true
+})
+
+defineExpose({ onSubmit })
 </script>
 
 <template>
@@ -65,7 +86,7 @@ const onSubmit = handleSubmit(() => {})
               <InputText
                 :class="{ 'input-error': errors.email }"
                 v-bind="email"
-                type="text"
+                type="email"
                 placeholder="alexei@mail.com"
               />
             </div>
@@ -77,7 +98,7 @@ const onSubmit = handleSubmit(() => {})
               <InputText
                 :class="{ 'input-error': errors.phone }"
                 v-bind="phone"
-                type="text"
+                type="tel"
                 placeholder="+1 202-555-0136"
               />
             </div>
@@ -106,7 +127,7 @@ const onSubmit = handleSubmit(() => {})
               <InputText
                 :class="{ 'input-error': errors.zipCode }"
                 v-bind="zipCode"
-                type="text"
+                type="number"
                 placeholder="10001"
               />
             </div>
@@ -161,7 +182,7 @@ const onSubmit = handleSubmit(() => {})
               <InputText
                 :class="{ 'input-error': errors.eMoney }"
                 v-bind="eMoney"
-                type="text"
+                type="number"
                 placeholder="238521993"
               />
             </div>
@@ -173,7 +194,7 @@ const onSubmit = handleSubmit(() => {})
               <InputText
                 :class="{ 'input-error': errors.eMoneyPin }"
                 v-bind="eMoneyPin"
-                type="text"
+                type="number"
                 placeholder="6891"
               />
             </div>
@@ -198,6 +219,10 @@ const onSubmit = handleSubmit(() => {})
   background-color: $white;
   padding: 3.375rem 3rem 3rem;
   border-radius: 8px;
+
+  @media (max-width: 850px) {
+    padding: 1rem;
+  }
 
   h1 {
     font-size: 2rem;
@@ -224,6 +249,10 @@ const onSubmit = handleSubmit(() => {})
         display: grid;
         gap: 1.5rem;
         grid-template-columns: repeat(2, 1fr);
+
+        @media (max-width: 850px) {
+          grid-template-columns: 1fr;
+        }
 
         .address {
           grid-column: 1 / -1;

@@ -10,6 +10,7 @@ export const useCartStore = defineStore('cart', () => {
   const isCartVisible = ref(false)
   const cartTotal = ref(0)
   const currentCartItem = ref<CartItem>()
+  const dialogVisible = ref(false)
 
   const addToCart = (cartItem: CartItem) => {
     currentCartItem.value = cart.value.find((item) => item.productID === cartItem.productID)
@@ -21,6 +22,9 @@ export const useCartStore = defineStore('cart', () => {
     } else {
       cart.value.push(cartItem)
     }
+
+    localStorage.setItem('cartTotal', JSON.stringify(cartTotal.value))
+    localStorage.setItem('cart', JSON.stringify(cart.value))
   }
 
   const decreaseQuantityFromCartItem = (cartItem: CartItem) => {
@@ -36,6 +40,9 @@ export const useCartStore = defineStore('cart', () => {
     if (currentCartItem.value.quantity === 0) {
       cart.value = cart.value.filter((item) => item.productID !== cartItem.productID)
     }
+
+    localStorage.setItem('cartTotal', JSON.stringify(cartTotal.value))
+    localStorage.setItem('cart', JSON.stringify(cart.value))
   }
 
   const increaseQuantityFromCartItem = (cartItem: CartItem) => {
@@ -47,17 +54,24 @@ export const useCartStore = defineStore('cart', () => {
     currentCartItem.value.quantity++
     currentCartItem.value.price += product?.price || 0
     cartTotal.value += product?.price || 0
+
+    localStorage.setItem('cartTotal', JSON.stringify(cartTotal.value))
+    localStorage.setItem('cart', JSON.stringify(cart.value))
   }
 
   const clearCart = () => {
     cart.value = []
     cartTotal.value = 0
+
+    localStorage.setItem('cartTotal', JSON.stringify(cartTotal.value))
+    localStorage.setItem('cart', JSON.stringify(cart.value))
   }
 
   return {
     cart,
     cartItemQuantity,
     isCartVisible,
+    dialogVisible,
     cartTotal,
     addToCart,
     decreaseQuantityFromCartItem,
