@@ -6,9 +6,11 @@ import { ref } from 'vue'
 import Dialog from 'primevue/dialog'
 import PrimaryLink from '@/components/PrimaryLink.vue'
 import { useCartStore } from '@/stores/cartStore'
+import { useProductStore } from '@/stores/productStore'
 
 const checkoutForm = ref()
 const cartStore = useCartStore()
+const productStore = useProductStore()
 
 const submitForm = () => {
   if (!checkoutForm.value) return
@@ -20,6 +22,8 @@ const resetCart = () => {
   cartStore.cartTotal = 0
   cartStore.dialogVisible = false
 }
+
+productStore.navbarClass = 'navbar-section alt-navbar'
 </script>
 
 <template>
@@ -79,6 +83,7 @@ const resetCart = () => {
 
 .checkout-page {
   padding-bottom: 4rem;
+  margin-top: 6.5rem;
 
   @media (max-width: 1150px) {
     padding-inline: 1rem;

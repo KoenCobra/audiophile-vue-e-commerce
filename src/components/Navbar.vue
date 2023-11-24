@@ -1,6 +1,6 @@
 <template>
   <div ref="topElement" class="top-element"></div>
-  <div class="navbar-section" :class="{ isScrolling: isPageScrolling }">
+  <div :class="[{ isScrolling: isPageScrolling }, productStore.navbarClass]">
     <div class="navbar">
       <div @click="isMobileMenuVisible = !isMobileMenuVisible" class="navbar-toggle">
         <div class="hamburger">
@@ -38,8 +38,10 @@ import NavLinks from './NavLinks.vue'
 import { onMounted, onUnmounted, ref } from 'vue'
 import { useCartStore } from '@/stores/cartStore'
 import Categories from './Categories.vue'
+import { useProductStore } from '@/stores/productStore'
 
 const cartStore = useCartStore()
+const productStore = useProductStore()
 const isMobileMenuVisible = ref(false)
 const isPageScrolling = ref(false)
 const topElement = ref(null)
@@ -79,24 +81,24 @@ onUnmounted(() => {
   right: 0;
   z-index: 999;
 
+  &.alt-navbar {
+    background-color: black;
+  }
+
   &.isScrolling {
     transition: all 0.1s linear;
-    background-color: $black;
+    background-color: black;
+    position: fixed;
   }
 
   @media (max-width: 1150px) {
     max-width: 1150px;
     padding: 2.25rem 2.5rem;
     top: 0;
-    // background-color: $black;
 
     .navbar {
       border: 0 !important;
     }
-
-    // .mobile-nav-menu {
-    //   display: block;
-    // }
   }
 
   .navbar {
@@ -107,20 +109,6 @@ onUnmounted(() => {
     justify-content: space-between;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     position: relative;
-
-    // &.home-navbar {
-    //   background-color: transparent;
-    //   position: absolute;
-    //   left: 0;
-    //   right: 0;
-    //   height: 97px;
-
-    //   @media (max-width: 1150px) {
-    //     inset: 0;
-    //     padding-inline: 2.5rem;
-    //     background-color: $black;
-    //   }
-    // }
 
     .navbar-toggle {
       display: flex;

@@ -8,9 +8,9 @@
 import { onMounted } from 'vue'
 import { useProductStore } from './stores/productStore'
 import { useCartStore } from './stores/cartStore'
+import Toast from 'primevue/toast'
 
 const cartStore = useCartStore()
-
 const productStore = useProductStore()
 
 onMounted(async () => {

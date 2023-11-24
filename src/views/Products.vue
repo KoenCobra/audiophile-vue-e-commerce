@@ -1,4 +1,10 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import { useProductStore } from '@/stores/productStore'
+
+const productStore = useProductStore()
+
+productStore.navbarClass = 'navbar-section'
+</script>
 
 <template>
   <RouterView />

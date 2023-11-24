@@ -11,8 +11,8 @@ import type { CartItem } from '@/types/product'
 import { useCartStore } from '@/stores/cartStore'
 import BackButton from '@/components/BackButton.vue'
 
-const productStore = useProductStore()
 const cartStore = useCartStore()
+const productStore = useProductStore()
 const route = useRoute()
 const productId = ref()
 const quantity = ref(1)
@@ -35,6 +35,8 @@ const addToCart = () => {
 
   quantity.value = 1
 }
+
+productStore.navbarClass = 'navbar-section alt-navbar'
 </script>
 
 <template>
@@ -68,7 +70,6 @@ const addToCart = () => {
 
 <style lang="scss" scoped>
 @import '../assets/sass/variables.scss';
-
 .product-details {
   max-width: 1100px;
   margin-inline: auto;
@@ -77,6 +78,7 @@ const addToCart = () => {
   gap: 1.5rem;
   align-items: flex-start;
   order: 0 !important;
+  margin-top: 6.5rem;
 
   h1 {
     margin-bottom: 0;
