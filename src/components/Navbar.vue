@@ -2,11 +2,11 @@
   <div ref="topElement" class="top-element"></div>
   <div :class="[{ isScrolling: isPageScrolling }, productStore.navbarClass]">
     <div class="navbar">
-      <div @click="isMobileMenuVisible = !isMobileMenuVisible" class="navbar-toggle">
-        <div class="hamburger">
+      <div class="navbar-toggle">
+        <div @click="isMobileMenuVisible = !isMobileMenuVisible" class="hamburger">
           <img loading="lazy" src="/images/shared/tablet/icon-hamburger.svg" alt="toggle" />
         </div>
-        <RouterLink to="/">
+        <RouterLink @click="isMobileMenuVisible = false" to="/">
           <img loading="lazy" src="/images/shared/desktop/logo.svg" alt="logo" />
         </RouterLink>
       </div>
@@ -89,13 +89,10 @@ onUnmounted(() => {
     transition: all 0.1s linear;
     background-color: black;
     position: fixed;
-<<<<<<< HEAD
 
     .navbar {
       border: 0 !important;
     }
-=======
->>>>>>> 44e210368a786128df4ecbc836be4d6107759914
   }
 
   @media (max-width: 1150px) {
@@ -170,7 +167,7 @@ onUnmounted(() => {
   }
 
   .overlay {
-    position: absolute;
+    position: fixed;
     inset: 0;
     top: 97px;
     z-index: 10;
@@ -182,7 +179,7 @@ onUnmounted(() => {
     top: 97px;
     left: 0;
     background-color: $white;
-    position: absolute;
+    position: fixed;
     z-index: 11;
   }
 }

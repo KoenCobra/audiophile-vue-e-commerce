@@ -12,10 +12,7 @@ import { useCartStore } from '@/stores/cartStore'
 import BackButton from '@/components/BackButton.vue'
 import { useToast } from 'primevue/usetoast'
 
-<<<<<<< HEAD
 const toast = useToast()
-=======
->>>>>>> 44e210368a786128df4ecbc836be4d6107759914
 const cartStore = useCartStore()
 const productStore = useProductStore()
 const route = useRoute()
