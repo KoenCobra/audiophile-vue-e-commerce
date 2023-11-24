@@ -89,10 +89,13 @@ onUnmounted(() => {
     transition: all 0.1s linear;
     background-color: black;
     position: fixed;
+<<<<<<< HEAD
 
     .navbar {
       border: 0 !important;
     }
+=======
+>>>>>>> 44e210368a786128df4ecbc836be4d6107759914
   }
 
   @media (max-width: 1150px) {
