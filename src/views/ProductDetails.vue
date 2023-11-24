@@ -10,9 +10,11 @@ import OtherProducts from '@/components/OtherProducts.vue'
 import type { CartItem } from '@/types/product'
 import { useCartStore } from '@/stores/cartStore'
 import BackButton from '@/components/BackButton.vue'
+import { useToast } from 'primevue/usetoast'
 
-const productStore = useProductStore()
+const toast = useToast()
 const cartStore = useCartStore()
+const productStore = useProductStore()
 const route = useRoute()
 const productId = ref()
 const quantity = ref(1)
@@ -34,7 +36,16 @@ const addToCart = () => {
   cartStore.addToCart(cartItem)
 
   quantity.value = 1
+
+  toast.add({
+    severity: 'success',
+    summary: 'Success',
+    detail: `Added (${cartItem.quantity}) ${productStore.product?.name} to cart`,
+    life: 5000
+  })
 }
+
+productStore.navbarClass = 'navbar-section alt-navbar'
 </script>
 
 <template>
@@ -68,7 +79,6 @@ const addToCart = () => {
 
 <style lang="scss" scoped>
 @import '../assets/sass/variables.scss';
-
 .product-details {
   max-width: 1100px;
   margin-inline: auto;
@@ -77,6 +87,7 @@ const addToCart = () => {
   gap: 1.5rem;
   align-items: flex-start;
   order: 0 !important;
+  margin-top: 6.5rem;
 
   h1 {
     margin-bottom: 0;

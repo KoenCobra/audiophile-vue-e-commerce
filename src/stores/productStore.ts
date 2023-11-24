@@ -6,6 +6,7 @@ import type { Product } from '@/types/product'
 export const useProductStore = defineStore('product', () => {
   const products = ref<Product[]>([])
   const product = ref<Product>()
+  const navbarClass = ref('')
 
   const getProducts = async () => {
     products.value = (await axios.get('/data.json')).data
@@ -15,5 +16,5 @@ export const useProductStore = defineStore('product', () => {
     product.value = products.value.find((p) => p.id === Number(id))
   }
 
-  return { products, product, getProducts, getProduct }
+  return { products, product, navbarClass, getProducts, getProduct }
 })

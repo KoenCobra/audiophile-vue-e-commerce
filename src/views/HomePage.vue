@@ -10,6 +10,11 @@
 import HeroSection from '@/components/HeroSection.vue'
 import Categories from '@/components/Categories.vue'
 import Featured from '@/components/featured/Featured.vue'
+import { useProductStore } from '@/stores/productStore'
+
+const productStore = useProductStore()
+
+productStore.navbarClass = 'navbar-section'
 </script>
 
 <style scoped lang="scss">
