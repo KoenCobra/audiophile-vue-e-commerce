@@ -11,11 +11,13 @@ const paymentType = ref('e-Money')
 const schema = Yup.object().shape({
   name: Yup.string().required('Name is required'),
   email: Yup.string().email('Wrong format').required('Email is required'),
-  phone: Yup.string().required('Phone is required'),
+  phone: Yup.number().typeError('Should be a number').required('Phone is required'),
   address: Yup.string().required('Address is required'),
-  zipCode: Yup.string().required('Zip code is required'),
+  zipCode: Yup.number().required('Zip code is required'),
   city: Yup.string().required('City is required'),
-  country: Yup.string().required('Country is required')
+  country: Yup.string().required('Country is required'),
+  eMoney: Yup.number().typeError('Should be a number').required('e-Money number is required'),
+  eMoneyPin: Yup.number().typeError('Should be a number').required('e-Money pin is required')
 })
 
 const { defineComponentBinds, errors, handleSubmit } = useForm({
@@ -29,6 +31,8 @@ const address = defineComponentBinds('address')
 const zipCode = defineComponentBinds('zipCode')
 const city = defineComponentBinds('city')
 const country = defineComponentBinds('country')
+const eMoney = defineComponentBinds('eMoney')
+const eMoneyPin = defineComponentBinds('eMoneyPin')
 
 const onSubmit = handleSubmit(() => {})
 </script>
@@ -42,9 +46,9 @@ const onSubmit = handleSubmit(() => {})
           <h4>Billing details</h4>
           <div class="form-grid">
             <div>
-              <div class="label">
+              <div :class="{ error: errors.name }" class="label">
                 <label>Name</label>
-                <span v-if="errors.name" class="error">{{ errors.name }}</span>
+                <span v-if="errors.name">{{ errors.name }}</span>
               </div>
               <InputText
                 :class="{ 'input-error': errors.name }"
@@ -54,18 +58,28 @@ const onSubmit = handleSubmit(() => {})
               />
             </div>
             <div>
-              <div class="label">
+              <div :class="{ error: errors.email }" class="label">
                 <label>Email Address</label>
-                <span v-if="errors.email" class="error">{{ errors.email }}</span>
+                <span v-if="errors.email">{{ errors.email }}</span>
               </div>
-              <InputText v-bind="email" type="text" placeholder="alexei@mail.com" />
+              <InputText
+                :class="{ 'input-error': errors.email }"
+                v-bind="email"
+                type="text"
+                placeholder="alexei@mail.com"
+              />
             </div>
             <div>
-              <div class="label">
+              <div :class="{ error: errors.phone }" class="label">
                 <label>Phone Number </label>
-                <span v-if="errors.phone" class="error">{{ errors.phone }}</span>
+                <span v-if="errors.phone">{{ errors.phone }}</span>
               </div>
-              <InputText v-bind="phone" type="text" placeholder="+1 202-555-0136" />
+              <InputText
+                :class="{ 'input-error': errors.phone }"
+                v-bind="phone"
+                type="text"
+                placeholder="+1 202-555-0136"
+              />
             </div>
           </div>
         </div>
@@ -73,32 +87,52 @@ const onSubmit = handleSubmit(() => {})
           <h4>Shipping info</h4>
           <div class="form-grid">
             <div class="form-input address">
-              <div class="label">
+              <div :class="{ error: errors.address }" class="label">
                 <label>Address</label>
-                <span v-if="errors.address" class="error">{{ errors.address }}</span>
+                <span v-if="errors.address">{{ errors.address }}</span>
               </div>
-              <InputText v-bind="address" type="text" placeholder="1137 Williams Avenue" />
+              <InputText
+                :class="{ 'input-error': errors.address }"
+                v-bind="address"
+                type="text"
+                placeholder="1137 Williams Avenue"
+              />
             </div>
             <div>
-              <div class="label">
+              <div :class="{ error: errors.zipCode }" class="label">
                 <label>ZIP Code</label>
-                <span v-if="errors.zipCode" class="error">{{ errors.zipCode }}</span>
+                <span v-if="errors.zipCode">{{ errors.zipCode }}</span>
               </div>
-              <InputText v-bind="zipCode" type="text" placeholder="10001" />
+              <InputText
+                :class="{ 'input-error': errors.zipCode }"
+                v-bind="zipCode"
+                type="text"
+                placeholder="10001"
+              />
             </div>
             <div>
-              <div class="label">
+              <div :class="{ error: errors.city }" class="label">
                 <label>City</label>
-                <span v-if="errors.city" class="error">{{ errors.city }}</span>
+                <span v-if="errors.city">{{ errors.city }}</span>
               </div>
-              <InputText v-bind="city" type="text" placeholder="New York" />
+              <InputText
+                :class="{ 'input-error': errors.city }"
+                v-bind="city"
+                type="text"
+                placeholder="New York"
+              />
             </div>
             <div>
-              <div class="label">
+              <div :class="{ error: errors.country }" class="label">
                 <label>Country</label>
-                <span v-if="errors.country" class="error">{{ errors.country }}</span>
+                <span v-if="errors.country">{{ errors.country }}</span>
               </div>
-              <InputText v-bind="country" type="text" placeholder="United States" />
+              <InputText
+                :class="{ 'input-error': errors.country }"
+                v-bind="country"
+                type="text"
+                placeholder="United States"
+              />
             </div>
           </div>
         </div>
@@ -120,12 +154,28 @@ const onSubmit = handleSubmit(() => {})
             </div>
 
             <div v-if="paymentType === 'e-Money'">
-              <label>e-Money Number</label>
-              <InputText type="text" placeholder="238521993" />
+              <div :class="{ error: errors.eMoney }" class="label">
+                <label>e-Money Number</label>
+                <span v-if="errors.eMoney">{{ errors.eMoney }}</span>
+              </div>
+              <InputText
+                :class="{ 'input-error': errors.eMoney }"
+                v-bind="eMoney"
+                type="text"
+                placeholder="238521993"
+              />
             </div>
             <div v-if="paymentType === 'e-Money'">
-              <label>e-Money PIN</label>
-              <InputText type="text" placeholder="6891" />
+              <div :class="{ error: errors.eMoneyPin }" class="label">
+                <label>e-Money PIN</label>
+                <span v-if="errors.eMoneyPin">{{ errors.eMoneyPin }}</span>
+              </div>
+              <InputText
+                :class="{ 'input-error': errors.eMoneyPin }"
+                v-bind="eMoneyPin"
+                type="text"
+                placeholder="6891"
+              />
             </div>
             <div class="cash" v-if="paymentType === 'cash'">
               <img src="/images/checkout/icon-cash-on-delivery.svg" alt="" />
@@ -178,12 +228,6 @@ const onSubmit = handleSubmit(() => {})
         .address {
           grid-column: 1 / -1;
         }
-
-        &.input-error {
-          input {
-            border: 1px solid #cd2c2c;
-          }
-        }
       }
 
       .radio-inputs {
@@ -218,6 +262,10 @@ const onSubmit = handleSubmit(() => {})
         &:focus {
           border: 1px solid $orange;
         }
+
+        &.input-error {
+          border: 2px solid #cd2c2c;
+        }
       }
 
       label {
@@ -251,7 +299,6 @@ const onSubmit = handleSubmit(() => {})
 
   .error {
     color: #cd2c2c;
-    margin-left: auto;
     font-size: 0.75rem;
     font-weight: 500;
     letter-spacing: -0.214px;
@@ -259,6 +306,7 @@ const onSubmit = handleSubmit(() => {})
 
   .label {
     display: flex;
+    justify-content: space-between;
   }
 }
 </style>
