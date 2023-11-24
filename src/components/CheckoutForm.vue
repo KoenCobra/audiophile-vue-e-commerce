@@ -9,16 +9,16 @@ import { ref } from 'vue'
 const paymentType = ref('e-Money')
 
 const schema = Yup.object().shape({
-  name: Yup.string().required(),
-  email: Yup.string().email().required(),
-  phone: Yup.string().required(),
-  address: Yup.string().required(),
-  zipCode: Yup.string().required(),
-  city: Yup.string().required(),
-  country: Yup.string().required()
+  name: Yup.string().required('Name is required'),
+  email: Yup.string().email('Wrong format').required('Email is required'),
+  phone: Yup.string().required('Phone is required'),
+  address: Yup.string().required('Address is required'),
+  zipCode: Yup.string().required('Zip code is required'),
+  city: Yup.string().required('City is required'),
+  country: Yup.string().required('Country is required')
 })
 
-const { defineComponentBinds, errors, handleSubmit, isSubmitting, setFieldValue } = useForm({
+const { defineComponentBinds, errors, handleSubmit } = useForm({
   validationSchema: schema
 })
 
@@ -46,7 +46,12 @@ const onSubmit = handleSubmit(() => {})
                 <label>Name</label>
                 <span v-if="errors.name" class="error">{{ errors.name }}</span>
               </div>
-              <InputText v-bind="name" type="text" placeholder="Alexei Ward" />
+              <InputText
+                :class="{ 'input-error': errors.name }"
+                v-bind="name"
+                type="text"
+                placeholder="Alexei Ward"
+              />
             </div>
             <div>
               <div class="label">
@@ -123,7 +128,7 @@ const onSubmit = handleSubmit(() => {})
               <InputText type="text" placeholder="6891" />
             </div>
             <div class="cash" v-if="paymentType === 'cash'">
-              <img src="/public/images/checkout/icon-cash-on-delivery.svg" alt="" />
+              <img src="/images/checkout/icon-cash-on-delivery.svg" alt="" />
               <p>
                 The ‘Cash on Delivery’ option enables you to pay in cash when our delivery courier
                 arrives at your residence. Just make sure your address is correct so that your order
@@ -134,7 +139,6 @@ const onSubmit = handleSubmit(() => {})
         </div>
       </div>
     </div>
-    <button type="submit">submit</button>
   </form>
 </template>
 
@@ -173,6 +177,12 @@ const onSubmit = handleSubmit(() => {})
 
         .address {
           grid-column: 1 / -1;
+        }
+
+        &.input-error {
+          input {
+            border: 1px solid #cd2c2c;
+          }
         }
       }
 
