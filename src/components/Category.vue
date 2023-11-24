@@ -25,7 +25,7 @@ watchEffect(async () => {
 <style lang="scss" scoped>
 @import '../assets/sass/variables.scss';
 .category-hero {
-  height: 250px;
+  height: 300px;
   background-color: $black;
   position: relative;
 
@@ -42,6 +42,11 @@ watchEffect(async () => {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+    padding-top: 5rem;
+
+    @media (max-width: 1150px) {
+      padding-top: 3rem;
+    }
   }
 }
 

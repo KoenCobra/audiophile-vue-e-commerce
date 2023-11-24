@@ -1,6 +1,6 @@
 <template>
   <div class="navbar-section">
-    <div class="navbar" :class="{ 'home-navbar': isHomeRoute }">
+    <div class="navbar">
       <div @click="isMobileMenuVisible = !isMobileMenuVisible" class="navbar-toggle">
         <div class="hamburger">
           <img loading="lazy" src="/images/shared/tablet/icon-hamburger.svg" alt="toggle" />
@@ -27,7 +27,7 @@
   <div @click="isMobileMenuVisible = false" v-if="isMobileMenuVisible" class="mobile-nav-menu">
     <div class="overlay"></div>
     <div class="nav-menu">
-      <MobileNavMenu />
+      <Categories />
     </div>
   </div>
 </template>
@@ -37,7 +37,7 @@ import { useRoute } from 'vue-router'
 import NavLinks from './NavLinks.vue'
 import { ref, watch } from 'vue'
 import { useCartStore } from '@/stores/cartStore'
-import MobileNavMenu from './MobileNavMenu.vue'
+import Categories from './Categories.vue'
 
 const route = useRoute()
 const cartStore = useCartStore()
@@ -53,28 +53,28 @@ watch(route, (newRoute) => {
 @import '../assets/sass/variables.scss';
 
 .navbar-section {
-  background-color: $black;
-  position: static;
+  background-color: transparent;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1;
+  z-index: 999;
 
   @media (max-width: 1150px) {
     max-width: 1150px;
     padding: 2.25rem 2.5rem;
-    position: sticky;
+    // position: sticky;
     top: 0;
-    background-color: $black;
+    // background-color: $black;
     z-index: 1;
 
     .navbar {
       border: 0 !important;
     }
 
-    .mobile-nav-menu {
-      display: block;
-    }
+    // .mobile-nav-menu {
+    //   display: block;
+    // }
   }
 
   .navbar {
@@ -84,20 +84,21 @@ watch(route, (newRoute) => {
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
 
-    &.home-navbar {
-      background-color: transparent;
-      position: absolute;
-      left: 0;
-      right: 0;
-      height: 97px;
+    // &.home-navbar {
+    //   background-color: transparent;
+    //   position: absolute;
+    //   left: 0;
+    //   right: 0;
+    //   height: 97px;
 
-      @media (max-width: 1150px) {
-        inset: 0;
-        padding-inline: 2.5rem;
-        background-color: $black;
-      }
-    }
+    //   @media (max-width: 1150px) {
+    //     inset: 0;
+    //     padding-inline: 2.5rem;
+    //     background-color: $black;
+    //   }
+    // }
 
     .navbar-toggle {
       display: flex;
@@ -152,7 +153,7 @@ watch(route, (newRoute) => {
   }
 
   .overlay {
-    position: fixed;
+    position: absolute;
     inset: 0;
     top: 97px;
     z-index: 10;
@@ -162,6 +163,7 @@ watch(route, (newRoute) => {
   .nav-menu {
     width: 100%;
     top: 97px;
+    left: 0;
     background-color: $white;
     position: absolute;
     z-index: 11;
