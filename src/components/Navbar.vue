@@ -1,5 +1,6 @@
 <template>
-  <div class="navbar-section">
+  <div ref="topElement" class="top-element"></div>
+  <div class="navbar-section" :class="{ isScrolling: isPageScrolling }">
     <div class="navbar">
       <div @click="isMobileMenuVisible = !isMobileMenuVisible" class="navbar-toggle">
         <div class="hamburger">
@@ -33,19 +34,37 @@
 </template>
 
 <script setup lang="ts">
-import { useRoute } from 'vue-router'
 import NavLinks from './NavLinks.vue'
-import { ref, watch } from 'vue'
+import { onMounted, onUnmounted, ref } from 'vue'
 import { useCartStore } from '@/stores/cartStore'
 import Categories from './Categories.vue'
 
-const route = useRoute()
 const cartStore = useCartStore()
-const isHomeRoute = ref(route.path === '/')
 const isMobileMenuVisible = ref(false)
+const isPageScrolling = ref(false)
+const topElement = ref(null)
 
-watch(route, (newRoute) => {
-  isHomeRoute.value = newRoute.path === '/'
+const observer = new IntersectionObserver(
+  (entries) => {
+    const [entry] = entries
+    isPageScrolling.value = !entry.isIntersecting
+  },
+  {
+    root: null,
+    threshold: 0
+  }
+)
+
+onMounted(() => {
+  if (topElement.value) {
+    observer.observe(topElement.value)
+  }
+})
+
+onUnmounted(() => {
+  if (topElement.value) {
+    observer.unobserve(topElement.value)
+  }
 })
 </script>
 
@@ -60,13 +79,16 @@ watch(route, (newRoute) => {
   right: 0;
   z-index: 999;
 
+  &.isScrolling {
+    transition: all 0.1s linear;
+    background-color: $black;
+  }
+
   @media (max-width: 1150px) {
     max-width: 1150px;
     padding: 2.25rem 2.5rem;
-    // position: sticky;
     top: 0;
     // background-color: $black;
-    z-index: 1;
 
     .navbar {
       border: 0 !important;
