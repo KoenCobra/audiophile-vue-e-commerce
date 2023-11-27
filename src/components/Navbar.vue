@@ -182,13 +182,14 @@ onUnmounted(() => {
   .nav-menu {
     width: 100%;
     top: 97px;
-    left: 0;
-    bottom: 0;
     overflow-y: auto;
     background-color: $white;
     position: fixed;
-    max-height: 80vh;
     z-index: 11;
+
+    @media (max-width: 754px) {
+      height: 80vh;
+    }
   }
 }
 

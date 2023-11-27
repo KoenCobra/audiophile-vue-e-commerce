@@ -1,6 +1,6 @@
 <template>
-  <div class="categories">
-    <RouterLink to="/products/headphones">
+  <div class="categories" ref="categories">
+    <RouterLink class="link" :class="showCssClass" to="/products/headphones">
       <div class="category">
         <img
           loading="lazy"
@@ -17,7 +17,7 @@
         </div>
       </div>
     </RouterLink>
-    <RouterLink to="/products/speakers">
+    <RouterLink class="link" :class="showCssClass" to="/products/speakers">
       <div class="category">
         <img
           loading="lazy"
@@ -34,7 +34,7 @@
         </div>
       </div>
     </RouterLink>
-    <RouterLink to="/products/earphones">
+    <RouterLink class="link" :class="showCssClass" to="/products/earphones">
       <div class="category">
         <img
           loading="lazy"
@@ -54,7 +54,26 @@
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { onMounted, ref } from 'vue'
+
+const categories = ref(null)
+const showCssClass = ref('')
+
+const observer = new IntersectionObserver((entries) => {
+  const [entry] = entries
+
+  if (entry.isIntersecting) {
+    showCssClass.value = 'show'
+  }
+})
+
+onMounted(() => {
+  if (categories.value) {
+    observer.observe(categories.value)
+  }
+})
+</script>
 
 <style scoped lang="scss">
 @import '../assets/sass/variables.scss';
@@ -67,6 +86,26 @@
   margin-top: 150px;
   margin-bottom: 130px;
   width: 100%;
+
+  .link {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateX(-100px);
+    transition: all 0.5s ease-out;
+
+    &.show {
+      opacity: 1;
+      filter: blur(0);
+      transform: translateX(0);
+    }
+    &:nth-child(2) {
+      transition-delay: 200ms;
+    }
+
+    &:nth-child(3) {
+      transition-delay: 400ms;
+    }
+  }
 
   @media (max-width: 1150px) {
     padding-inline: 2.5rem;
