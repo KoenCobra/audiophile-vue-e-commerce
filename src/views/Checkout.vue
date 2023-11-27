@@ -46,7 +46,7 @@ productStore.navbarClass = 'navbar-section alt-navbar'
   >
     <template #header>
       <div>
-        <img src="/images/checkout/icon-order-confirmation.svg" alt="" />
+        <img loading="lazy" src="/images/checkout/icon-order-confirmation.svg" alt="confirmation" />
       </div>
     </template>
     <div class="header">
@@ -59,7 +59,7 @@ productStore.navbarClass = 'navbar-section alt-navbar'
     <div class="summary-overview">
       <div class="summary-cart-items">
         <div v-for="item in cartStore.cart" :key="item.productID" class="summary-cart-item">
-          <img :src="`/${item.productImage}`" alt="img" />
+          <img loading="lazy" :src="`/${item.productImage}`" alt="img" />
           <div class="cart-items-detail">
             <p>{{ item.productName.replace(/Headphones|Speaker|Earphones/g, '') }}</p>
             <span>$ {{ item.price }}</span>

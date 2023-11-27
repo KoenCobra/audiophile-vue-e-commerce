@@ -187,7 +187,7 @@ onUnmounted(() => {
     overflow-y: auto;
     background-color: $white;
     position: fixed;
-    height: 80vh;
+    max-height: 80vh;
     z-index: 11;
   }
 }

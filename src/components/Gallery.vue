@@ -6,9 +6,24 @@ const productStore = useProductStore()
 
 <template>
   <div class="gallery">
-    <img class="first" :src="`/${productStore.product?.gallery.first.desktop}`" alt="first" />
-    <img class="second" :src="`/${productStore.product?.gallery.second.desktop}`" alt="second" />
-    <img class="third" :src="`/${productStore.product?.gallery.third.desktop}`" alt="third" />
+    <img
+      loading="lazy"
+      class="first"
+      :src="`/${productStore.product?.gallery.first.desktop}`"
+      alt="first"
+    />
+    <img
+      loading="lazy"
+      class="second"
+      :src="`/${productStore.product?.gallery.second.desktop}`"
+      alt="second"
+    />
+    <img
+      loading="lazy"
+      class="third"
+      :src="`/${productStore.product?.gallery.third.desktop}`"
+      alt="third"
+    />
   </div>
 </template>
 

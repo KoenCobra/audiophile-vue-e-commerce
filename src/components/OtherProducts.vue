@@ -11,7 +11,7 @@ const { product, products } = storeToRefs(productStore)
   <h2>YOU MAY ALSO LIKE</h2>
   <div class="other-products">
     <div v-for="(item, index) in product?.others" :key="index" class="other-product">
-      <img :src="`/${item.image.desktop}`" alt="other" />
+      <img loading="lazy" :src="`/${item.image.desktop}`" alt="other" />
       <h3>{{ item.name }}</h3>
       <PrimaryLink
         :href="`/products/${products?.find((p) => p.slug === item.slug)?.category}/${
