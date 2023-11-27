@@ -70,18 +70,5 @@ onMounted(() => {
   display: grid;
   gap: 2.5rem;
   margin-bottom: 150px;
-
-  .from-right {
-    opacity: 0;
-    filter: blur(5px);
-    transform: translateX(100px);
-    transition: all 0.5s ease-out;
-
-    &.right-show {
-      opacity: 1;
-      filter: blur(0);
-      transform: translateX(0);
-    }
-  }
 }
 </style>
