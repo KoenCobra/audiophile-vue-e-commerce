@@ -1,0 +1,19 @@
+.from-left {
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateX(-100px);
+  transition: all 0.5s ease-out;
+
+  &.show {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+  }
+  &:nth-child(2) {
+    transition-delay: 200ms;
+  }
+
+  &:nth-child(3) {
+    transition-delay: 400ms;
+  }
+}

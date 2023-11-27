@@ -1,6 +1,6 @@
 <template>
   <div class="categories" ref="categories">
-    <RouterLink class="link" :class="showCssClass" to="/products/headphones">
+    <RouterLink class="from-left" :class="showCssClass" to="/products/headphones">
       <div class="category">
         <img
           loading="lazy"
@@ -17,7 +17,7 @@
         </div>
       </div>
     </RouterLink>
-    <RouterLink class="link" :class="showCssClass" to="/products/speakers">
+    <RouterLink class="from-left" :class="showCssClass" to="/products/speakers">
       <div class="category">
         <img
           loading="lazy"
@@ -34,7 +34,7 @@
         </div>
       </div>
     </RouterLink>
-    <RouterLink class="link" :class="showCssClass" to="/products/earphones">
+    <RouterLink class="from-left" :class="showCssClass" to="/products/earphones">
       <div class="category">
         <img
           loading="lazy"
@@ -86,26 +86,6 @@ onMounted(() => {
   margin-top: 150px;
   margin-bottom: 130px;
   width: 100%;
-
-  .link {
-    opacity: 0;
-    filter: blur(5px);
-    transform: translateX(-100px);
-    transition: all 0.5s ease-out;
-
-    &.show {
-      opacity: 1;
-      filter: blur(0);
-      transform: translateX(0);
-    }
-    &:nth-child(2) {
-      transition-delay: 200ms;
-    }
-
-    &:nth-child(3) {
-      transition-delay: 400ms;
-    }
-  }
 
   @media (max-width: 1150px) {
     padding-inline: 2.5rem;
