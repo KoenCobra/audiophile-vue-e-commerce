@@ -17,5 +17,9 @@ const router = useRouter()
   font-weight: 500;
   opacity: 0.5;
   margin-top: 1.5rem;
+
+  @media (max-width: 1150px) {
+    margin-top: 0.5rem;
+  }
 }
 </style>

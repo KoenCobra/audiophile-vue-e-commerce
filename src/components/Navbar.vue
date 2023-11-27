@@ -3,17 +3,20 @@
   <div :class="[{ isScrolling: isPageScrolling }, productStore.navbarClass]">
     <div class="navbar">
       <div class="navbar-toggle">
-        <div @click="isMobileMenuVisible = !isMobileMenuVisible" class="hamburger">
+        <div
+          @click="productStore.isMobileMenuVisible = !productStore.isMobileMenuVisible"
+          class="hamburger"
+        >
           <img loading="lazy" src="/images/shared/tablet/icon-hamburger.svg" alt="toggle" />
         </div>
-        <RouterLink @click="isMobileMenuVisible = false" to="/">
+        <RouterLink to="/">
           <img loading="lazy" src="/images/shared/desktop/logo.svg" alt="logo" />
         </RouterLink>
       </div>
       <div class="navbar-links">
         <NavLinks />
       </div>
-      <div @click="cartStore.isCartVisible = true" class="navbar-cart">
+      <div @click="cartStore.isCartVisible = !cartStore.isCartVisible" class="navbar-cart">
         <button>
           <img loading="lazy" src="/images/shared/desktop/icon-cart.svg" alt="cart" />
         </button>
@@ -25,10 +28,14 @@
       </div>
     </div>
   </div>
-  <div @click="isMobileMenuVisible = false" v-if="isMobileMenuVisible" class="mobile-nav-menu">
+  <div
+    v-if="productStore.isMobileMenuVisible"
+    @click="productStore.isMobileMenuVisible = false"
+    class="mobile-nav-menu"
+  >
     <div class="overlay"></div>
     <div class="nav-menu">
-      <Categories />
+      <MobileNavMenu />
     </div>
   </div>
 </template>
@@ -37,12 +44,11 @@
 import NavLinks from './NavLinks.vue'
 import { onMounted, onUnmounted, ref } from 'vue'
 import { useCartStore } from '@/stores/cartStore'
-import Categories from './Categories.vue'
 import { useProductStore } from '@/stores/productStore'
+import MobileNavMenu from './MobileNavMenu.vue'
 
 const cartStore = useCartStore()
 const productStore = useProductStore()
-const isMobileMenuVisible = ref(false)
 const isPageScrolling = ref(false)
 const topElement = ref(null)
 
@@ -79,7 +85,7 @@ onUnmounted(() => {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 999;
+  z-index: 5;
 
   &.alt-navbar {
     background-color: black;
@@ -169,7 +175,6 @@ onUnmounted(() => {
   .overlay {
     position: fixed;
     inset: 0;
-    top: 97px;
     z-index: 10;
     background-color: rgba(0, 0, 0, 0.4);
   }
@@ -178,8 +183,11 @@ onUnmounted(() => {
     width: 100%;
     top: 97px;
     left: 0;
+    bottom: 0;
+    overflow-y: auto;
     background-color: $white;
     position: fixed;
+    height: 80vh;
     z-index: 11;
   }
 }

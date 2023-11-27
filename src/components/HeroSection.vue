@@ -22,11 +22,12 @@ import PrimaryLink from './PrimaryLink.vue'
 @import '../assets/sass/variables.scss';
 
 .hero-section {
-  height: 100vh !important;
+  min-height: 100vh;
+  min-height: 100svh;
+
   background: url('/images/home/desktop/image-hero.jpg') center/cover no-repeat;
 
   @media (max-width: 1150px) {
-    height: calc(100vh - 72px);
     background: url('/images/home/tablet/image-header.jpg') center/cover no-repeat;
   }
 
@@ -35,7 +36,8 @@ import PrimaryLink from './PrimaryLink.vue'
   }
 
   .hero-text-section {
-    height: calc(100vh - 92.5px);
+    min-height: 100vh !important;
+    min-height: 100svh;
     max-width: 1100px;
     margin-inline: auto;
     color: $white;

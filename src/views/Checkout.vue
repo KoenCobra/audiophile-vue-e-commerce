@@ -90,6 +90,10 @@ productStore.navbarClass = 'navbar-section alt-navbar'
   }
   .back-btn {
     margin-bottom: 1rem;
+
+    @media (max-width: 1150px) {
+      margin-bottom: 0.5rem;
+    }
   }
 
   .checkout-details {

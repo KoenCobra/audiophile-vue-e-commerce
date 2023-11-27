@@ -2,6 +2,8 @@
 import Categories from './Categories.vue'
 </script>
 
-<template></template>
+<template>
+  <Categories />
+</template>
 
 <style lang="scss" scoped></style>
