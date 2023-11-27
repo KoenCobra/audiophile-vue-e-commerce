@@ -34,7 +34,6 @@ const zx9Observer = new IntersectionObserver(
     }
   },
   {
-    root: null,
     threshold: 0.5
   }
 )
@@ -54,11 +53,11 @@ const zx1Observer = new IntersectionObserver((entries) => {
 })
 
 onMounted(() => {
-  if (zx7.value) {
-    zx7Observer.observe(zx7.value)
-  }
   if (zx9.value) {
     zx9Observer.observe(zx9.value)
+  }
+  if (zx7.value) {
+    zx7Observer.observe(zx7.value)
   }
   if (zx1.value) {
     zx1Observer.observe(zx1.value)

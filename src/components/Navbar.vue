@@ -52,16 +52,10 @@ const productStore = useProductStore()
 const isPageScrolling = ref(false)
 const topElement = ref(null)
 
-const observer = new IntersectionObserver(
-  (entries) => {
-    const [entry] = entries
-    isPageScrolling.value = !entry.isIntersecting
-  },
-  {
-    root: null,
-    threshold: 0
-  }
-)
+const observer = new IntersectionObserver((entries) => {
+  const [entry] = entries
+  isPageScrolling.value = !entry.isIntersecting
+})
 
 onMounted(() => {
   if (topElement.value) {
