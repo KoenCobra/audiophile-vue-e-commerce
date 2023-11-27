@@ -54,6 +54,17 @@ import PrimaryLink from './PrimaryLink.vue'
       flex-direction: column;
       gap: 1.5rem;
       width: 379px;
+      animation: fade-in 1s ease-in-out;
+
+      @keyframes fade-in {
+        from {
+          opacity: 0;
+          translate: 0 60px;
+        }
+        to {
+          opacity: 1;
+        }
+      }
 
       @media (max-width: 1150px) {
         align-items: center;
