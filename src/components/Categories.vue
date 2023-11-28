@@ -65,6 +65,8 @@ const observer = new IntersectionObserver((entries) => {
 
   if (entry.isIntersecting) {
     showCssClass.value = 'show'
+  } else {
+    showCssClass.value = ''
   }
 })
 
