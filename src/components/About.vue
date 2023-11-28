@@ -1,5 +1,5 @@
 <template>
-  <div class="about" ref="about">
+  <div class="about">
     <div class="about-text">
       <h2>Bringing you the <span>best</span> audio gear</h2>
       <p>
@@ -14,7 +14,30 @@
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { onMounted } from 'vue'
+
+onMounted(() => {
+  const aboutText = document.querySelector('.about-text')
+  const aboutImg = document.querySelector('.about-img')
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show')
+        }
+      })
+    },
+    {
+      threshold: 0.5
+    }
+  )
+
+  if (aboutText) observer.observe(aboutText)
+  if (aboutImg) observer.observe(aboutImg)
+})
+</script>
 
 <style scoped lang="scss">
 @import '../assets/sass/variables.scss';
@@ -31,12 +54,22 @@
     text-align: center;
   }
 
+  .show {
+    opacity: 1;
+    animation: slideInFromLeft 0.5s ease-in-out forwards;
+
+    &.about-img {
+      animation-name: slideInFromRight;
+    }
+  }
+
   .about-text {
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 2rem;
     width: 455px;
+    opacity: 0;
 
     @media (max-width: 1150px) {
       width: 573px;
@@ -77,6 +110,7 @@
   }
 
   .about-img {
+    opacity: 0;
     border-radius: 8px;
     background: url('/images/shared/desktop/image-best-gear.jpg') center/cover no-repeat;
     height: 588px;

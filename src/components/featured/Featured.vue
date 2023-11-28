@@ -43,28 +43,7 @@ onMounted(() => {
 </script>
 
 <style scoped lang="scss">
-@keyframes slideInFromLeft {
-  0% {
-    opacity: 0;
-    transform: translateX(-100px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes slideInFromRight {
-  0% {
-    opacity: 0;
-    transform: translateX(100px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
+@import '@/assets/sass/variables.scss';
 .featured {
   display: grid;
   gap: 2.5rem;
