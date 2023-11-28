@@ -6,6 +6,7 @@
   align-items: center;
   justify-content: start;
   gap: 128px;
+  opacity: 0;
 
   @media (max-width: 1150px) {
     display: flex;

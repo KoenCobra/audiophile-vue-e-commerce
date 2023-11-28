@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { useProductStore } from '@/stores/productStore'
-import { computed } from 'vue'
+import { computed, onMounted } from 'vue'
 import PrimaryLink from './PrimaryLink.vue'
 
 const productStore = useProductStore()
@@ -17,11 +17,39 @@ const props = defineProps({
     default: ''
   }
 })
+
+onMounted(() => {
+  const categoryProducts = document.querySelectorAll('.category-product')
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-in')
+        }
+      })
+    },
+    {
+      rootMargin: '-200px'
+    }
+  )
+
+  if (categoryProducts) {
+    categoryProducts.forEach((product) => {
+      observer.observe(product)
+    })
+  }
+})
 </script>
 
 <template>
   <div class="category-products">
-    <div class="category-product" v-for="product in sortedProducts" :key="product.id">
+    <div
+      class="category-product"
+      :class="`product-${product.id}`"
+      v-for="product in sortedProducts"
+      :key="product.id"
+    >
       <div>
         <img loading="lazy" :src="`/${product.image.desktop}`" alt="headphones" />
       </div>
@@ -39,7 +67,7 @@ const props = defineProps({
 @import '../assets/sass/variables.scss';
 
 .category-products {
-  margin-top: 160px;
+  margin-top: 140px;
   max-width: 1100px;
   margin-inline: auto;
   display: grid;
@@ -52,6 +80,10 @@ const props = defineProps({
   @media (max-width: 600px) {
     margin-top: 64px;
     padding-inline: 0.9rem;
+  }
+
+  .fade-in {
+    animation: fadeIn 0.5s forwards ease;
   }
 }
 </style>

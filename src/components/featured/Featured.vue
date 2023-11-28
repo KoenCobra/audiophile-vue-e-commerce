@@ -32,7 +32,7 @@ onMounted(() => {
       })
     },
     {
-      rootMargin: '-200px'
+      threshold: 0.5
     }
   )
 
