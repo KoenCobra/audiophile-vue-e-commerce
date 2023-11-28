@@ -25,24 +25,21 @@ watchEffect(async () => {
 <style lang="scss" scoped>
 @import '../assets/sass/variables.scss';
 .category-hero {
-  height: 300px;
   background-color: $black;
   position: relative;
+  display: grid;
+  place-items: center;
+  padding-block: 4rem;
 
-  @media (max-width: 1150px) {
-    height: 192px;
-  }
   p {
     font-size: 2.5rem;
     font-weight: 700;
     letter-spacing: 1.429px;
     text-transform: uppercase;
     color: $white;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    margin-inline: auto;
     padding-top: 5rem;
+    animation: fadeIn 0.5s ease;
 
     @media (max-width: 1150px) {
       padding-top: 3rem;
