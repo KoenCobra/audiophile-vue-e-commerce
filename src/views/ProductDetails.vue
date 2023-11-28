@@ -10,7 +10,7 @@ import OtherProducts from '@/components/OtherProducts.vue'
 import type { CartItem } from '@/types/product'
 import { useCartStore } from '@/stores/cartStore'
 import BackButton from '@/components/BackButton.vue'
-import { useToast } from 'primevue/usetoast'
+import { useToast, POSITION } from 'vue-toastification'
 
 const toast = useToast()
 const cartStore = useCartStore()
@@ -37,11 +37,9 @@ const addToCart = () => {
 
   quantity.value = 1
 
-  toast.add({
-    severity: 'success',
-    summary: 'Success',
-    detail: `Added (${cartItem.quantity}) ${productStore.product?.name} to cart`,
-    life: 3000
+  toast.success(`Added (${cartItem.quantity}) ${productStore.product?.name} to cart`, {
+    timeout: 3000,
+    position: 'bottom-right' as POSITION
   })
 }
 
