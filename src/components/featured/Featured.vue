@@ -60,7 +60,7 @@ onMounted(() => {
 
   .show {
     opacity: 1;
-    animation: slideInFromLeft 0.5s ease-in-out forwards;
+    animation: slideInFromLeft 1s ease-out forwards;
 
     &.zx7 {
       animation-name: slideInFromRight;

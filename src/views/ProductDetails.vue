@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { useProductStore } from '@/stores/productStore'
-import { ref, watchEffect } from 'vue'
+import { onMounted, ref, watchEffect } from 'vue'
 import { useRoute } from 'vue-router'
 import PrimaryLink from '@/components/PrimaryLink.vue'
 import InTheBox from '@/components/InTheBox.vue'
@@ -46,13 +46,29 @@ const addToCart = () => {
 }
 
 productStore.navbarClass = 'navbar-section alt-navbar'
+
+onMounted(() => {
+  const productImg = document.querySelector('.product-img')
+  const productDetail = document.querySelector('.product-detail')
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show')
+      }
+    })
+  })
+
+  if (productImg) observer.observe(productImg)
+  if (productDetail) observer.observe(productDetail)
+})
 </script>
 
 <template>
   <div class="category-product-details">
     <BackButton />
     <div class="category-product">
-      <div>
+      <div class="product-img">
         <img loading="lazy" :src="`/${productStore.product?.image.desktop}`" alt="img" />
       </div>
       <div class="product-detail">
@@ -93,6 +109,15 @@ productStore.navbarClass = 'navbar-section alt-navbar'
   }
   h1 {
     margin-bottom: 0;
+  }
+
+  .show {
+    opacity: 1;
+    animation: slideInFromLeft 0.3s ease-out forwards;
+
+    &.product-detail {
+      animation-name: slideInFromRight;
+    }
   }
 
   .price {

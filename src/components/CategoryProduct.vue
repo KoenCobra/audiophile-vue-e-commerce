@@ -21,18 +21,13 @@ const props = defineProps({
 onMounted(() => {
   const categoryProducts = document.querySelectorAll('.category-product')
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('fade-in')
-        }
-      })
-    },
-    {
-      threshold: 0.4
-    }
-  )
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('fade-in')
+      }
+    })
+  })
 
   if (categoryProducts) {
     categoryProducts.forEach((product) => {
@@ -44,12 +39,7 @@ onMounted(() => {
 
 <template>
   <div class="category-products">
-    <div
-      class="category-product"
-      :class="`product-${product.id}`"
-      v-for="product in sortedProducts"
-      :key="product.id"
-    >
+    <div class="category-product" v-for="product in sortedProducts" :key="product.id">
       <div>
         <img loading="lazy" :src="`/${product.image.desktop}`" alt="headphones" />
       </div>
@@ -83,7 +73,7 @@ onMounted(() => {
   }
 
   .fade-in {
-    animation: fadeIn 0.5s forwards ease;
+    animation: fadeIn 1s ease-out forwards;
   }
 }
 </style>
