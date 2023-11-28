@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { useProductStore } from '@/stores/productStore'
-import { onMounted, ref, watchEffect } from 'vue'
+import { ref, watchEffect } from 'vue'
 import { useRoute } from 'vue-router'
 import PrimaryLink from '@/components/PrimaryLink.vue'
 import InTheBox from '@/components/InTheBox.vue'
@@ -41,27 +41,11 @@ const addToCart = () => {
     severity: 'success',
     summary: 'Success',
     detail: `Added (${cartItem.quantity}) ${productStore.product?.name} to cart`,
-    life: 5000
+    life: 3000
   })
 }
 
 productStore.navbarClass = 'navbar-section alt-navbar'
-
-onMounted(() => {
-  const productImg = document.querySelector('.product-img')
-  const productDetail = document.querySelector('.product-detail')
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('show')
-      }
-    })
-  })
-
-  if (productImg) observer.observe(productImg)
-  if (productDetail) observer.observe(productDetail)
-})
 </script>
 
 <template>
@@ -105,19 +89,8 @@ onMounted(() => {
   order: 0 !important;
   margin-top: 6.5rem;
 
-  @media (max-width: 1150px) {
-  }
   h1 {
     margin-bottom: 0;
-  }
-
-  .show {
-    opacity: 1;
-    animation: slideInFromLeft 0.3s ease-out forwards;
-
-    &.product-detail {
-      animation-name: slideInFromRight;
-    }
   }
 
   .price {

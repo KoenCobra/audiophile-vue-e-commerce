@@ -56,7 +56,7 @@ onMounted(() => {
 
   .show {
     opacity: 1;
-    animation: slideInFromLeft 1s ease-out forwards;
+    animation: slideInFromLeft 0.8s ease-out forwards;
 
     &.about-img {
       animation-name: slideInFromRight;

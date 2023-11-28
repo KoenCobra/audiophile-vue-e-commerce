@@ -73,7 +73,7 @@ onMounted(() => {
   }
 
   .fade-in {
-    animation: fadeIn 1s ease-out forwards;
+    animation: fadeIn 0.8s ease-out forwards;
   }
 }
 </style>

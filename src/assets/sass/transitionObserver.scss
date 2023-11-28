@@ -1,7 +1,7 @@
 .from-left {
   opacity: 0;
   transform: translateX(-100px);
-  transition: all 1s linear;
+  transition: all 0.8s linear;
 
   &.show {
     opacity: 1;

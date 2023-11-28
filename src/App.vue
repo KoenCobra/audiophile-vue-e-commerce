@@ -2,7 +2,7 @@
   <component :is="$route.meta.layout || 'div'">
     <RouterView />
   </component>
-  <Toast position="bottom-right" />
+  <Toast position="bottom-center" />
 </template>
 
 <script setup lang="ts">

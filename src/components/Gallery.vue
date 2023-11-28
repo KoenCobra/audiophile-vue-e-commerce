@@ -1,7 +1,31 @@
 <script lang="ts" setup>
 import { useProductStore } from '@/stores/productStore'
+import { onMounted } from 'vue'
 
 const productStore = useProductStore()
+
+onMounted(() => {
+  const first = document.querySelector('.first')
+  const second = document.querySelector('.second')
+  const third = document.querySelector('.third')
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show')
+        }
+      })
+    },
+    {
+      threshold: 0.7
+    }
+  )
+
+  if (first) observer.observe(first)
+  if (second) observer.observe(second)
+  if (third) observer.observe(third)
+})
 </script>
 
 <template>
@@ -56,6 +80,22 @@ const productStore = useProductStore()
 
   .third {
     grid-area: second;
+  }
+
+  .show {
+    animation: scaleImg 0.5s ease-out;
+  }
+
+  @keyframes scaleImg {
+    0% {
+      transform: scale(1);
+    }
+    30% {
+      transform: scale(0.95);
+    }
+    100% {
+      transform: scale(1);
+    }
   }
 
   img {
