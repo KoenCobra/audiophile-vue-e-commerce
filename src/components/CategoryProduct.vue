@@ -25,7 +25,7 @@ const props = defineProps({
       <div>
         <img loading="lazy" :src="`/${product.image.desktop}`" alt="headphones" />
       </div>
-      <div class="product-details">
+      <div class="category-product-details">
         <p class="new-product" v-if="product.new">new product</p>
         <h1>{{ product.name }}</h1>
         <p class="description">{{ product.description }}</p>

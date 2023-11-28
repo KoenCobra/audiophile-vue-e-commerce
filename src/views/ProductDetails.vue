@@ -49,13 +49,13 @@ productStore.navbarClass = 'navbar-section alt-navbar'
 </script>
 
 <template>
-  <div class="product-details">
+  <div class="category-product-details">
     <BackButton />
     <div class="category-product">
       <div>
         <img loading="lazy" :src="`/${productStore.product?.image.desktop}`" alt="img" />
       </div>
-      <div class="product-details">
+      <div class="product-detail">
         <p class="new-product" v-if="productStore.product?.new">new product</p>
         <h1>{{ productStore.product?.name }}</h1>
         <p class="description">{{ productStore.product?.description }}</p>
@@ -79,7 +79,7 @@ productStore.navbarClass = 'navbar-section alt-navbar'
 
 <style lang="scss" scoped>
 @import '../assets/sass/variables.scss';
-.product-details {
+.category-product-details {
   max-width: 1100px;
   margin-inline: auto;
   display: flex;
@@ -89,6 +89,8 @@ productStore.navbarClass = 'navbar-section alt-navbar'
   order: 0 !important;
   margin-top: 6.5rem;
 
+  @media (max-width: 1150px) {
+  }
   h1 {
     margin-bottom: 0;
   }
@@ -98,6 +100,10 @@ productStore.navbarClass = 'navbar-section alt-navbar'
     font-weight: 700;
     letter-spacing: 1.286px;
     text-transform: uppercase;
+
+    @media (min-width: 1150px) {
+      margin-bottom: 2rem;
+    }
   }
 
   .description {
@@ -121,6 +127,29 @@ productStore.navbarClass = 'navbar-section alt-navbar'
   .add-to-cart-section {
     display: flex;
     gap: 1rem;
+  }
+}
+
+.product-detail {
+  display: grid;
+  place-items: center;
+  gap: 1.5rem;
+  @media (max-width: 450px) {
+    place-items: start;
+    text-align: start;
+  }
+  @media (min-width: 1150px) {
+    gap: 0;
+    place-items: start;
+    .new-product {
+      margin-bottom: 1rem;
+    }
+    h1 {
+      margin-bottom: 2rem;
+    }
+    .description {
+      margin-bottom: 3.5rem;
+    }
   }
 }
 </style>

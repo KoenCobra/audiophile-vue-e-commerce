@@ -4,6 +4,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   align-items: center;
+  justify-content: start;
   gap: 128px;
 
   @media (max-width: 1150px) {
@@ -16,7 +17,7 @@
   }
 
   &:nth-child(2) {
-    .product-details {
+    .category-product-details {
       order: -1;
       @media (max-width: 1150px) {
         order: 0;
@@ -33,8 +34,9 @@
       width: 100%;
     }
   }
-  .product-details {
-    width: 445px;
+  .category-product-details,
+  .product-detail {
+    width: 440px;
 
     @media (max-width: 600px) {
       width: 100%;

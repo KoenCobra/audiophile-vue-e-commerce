@@ -1,6 +1,6 @@
 <template>
   <div class="about" ref="about">
-    <div class="about-text from-left" :class="leftFadeIn">
+    <div class="about-text">
       <h2>Bringing you the <span>best</span> audio gear</h2>
       <p>
         Located at the heart of New York City, Audiophile is the premier store for high end
@@ -10,36 +10,11 @@
         buy your portable audio equipment.
       </p>
     </div>
-    <div class="about-img from-right" :class="rightFadeIn"></div>
+    <div class="about-img"></div>
   </div>
 </template>
 
-<script setup lang="ts">
-import { onMounted, ref } from 'vue'
-
-const about = ref(null)
-const leftFadeIn = ref('')
-const rightFadeIn = ref('')
-
-const aboutObserver = new IntersectionObserver(
-  (entries) => {
-    const [entry] = entries
-    if (entry.isIntersecting) {
-      leftFadeIn.value = 'show'
-      rightFadeIn.value = 'right-show'
-    }
-  },
-  {
-    threshold: 0.5
-  }
-)
-
-onMounted(() => {
-  if (about.value) {
-    aboutObserver.observe(about.value)
-  }
-})
-</script>
+<script setup lang="ts"></script>
 
 <style scoped lang="scss">
 @import '../assets/sass/variables.scss';

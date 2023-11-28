@@ -18,13 +18,15 @@ watchEffect(() => {
   if (cartStore.isCartVisible) {
     document.body.style.overflow = 'hidden'
   } else {
-    document.body.style.overflow = ''
+    document.body.style.overflow = 'auto'
   }
+})
 
+watchEffect(() => {
   if (productStore.isMobileMenuVisible) {
     document.body.style.overflow = 'hidden'
   } else {
-    document.body.style.overflow = ''
+    document.body.style.overflow = 'auto'
   }
 })
 
