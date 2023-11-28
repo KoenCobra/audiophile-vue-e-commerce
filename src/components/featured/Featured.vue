@@ -1,12 +1,12 @@
 <template>
   <div class="featured">
-    <div ref="zx9">
+    <div class="zx9">
       <ZX9></ZX9>
     </div>
-    <div ref="zx7">
+    <div class="zx7">
       <ZX7></ZX7>
     </div>
-    <div ref="zx1">
+    <div class="zx1">
       <YX1></YX1>
     </div>
   </div>
@@ -16,12 +16,76 @@
 import ZX9 from './ZX9.vue'
 import ZX7 from './ZX7.vue'
 import YX1 from './YX1.vue'
+import { onMounted } from 'vue'
+
+onMounted(() => {
+  const zx9 = document.querySelector('.zx9')
+  const zx7 = document.querySelector('.zx7')
+  const zx1 = document.querySelector('.zx1')
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show')
+        }
+      })
+    },
+    {
+      rootMargin: '-200px'
+    }
+  )
+
+  if (zx9) observer.observe(zx9)
+  if (zx7) observer.observe(zx7)
+  if (zx1) observer.observe(zx1)
+})
 </script>
 
 <style scoped lang="scss">
+@keyframes slideInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 .featured {
   display: grid;
   gap: 2.5rem;
   margin-bottom: 150px;
+
+  .zx9,
+  .zx1 {
+    opacity: 0;
+  }
+
+  .zx7 {
+    opacity: 0;
+  }
+
+  .show {
+    opacity: 1;
+    animation: slideInFromLeft 0.5s ease-in-out forwards;
+
+    &.zx7 {
+      animation-name: slideInFromRight;
+    }
+  }
 }
 </style>

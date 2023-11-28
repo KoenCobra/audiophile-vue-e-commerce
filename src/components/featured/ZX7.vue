@@ -25,7 +25,7 @@ import PrimaryLink from '../PrimaryLink.vue'
 
   @media (max-width: 1150px) {
     background: url('/images/home/tablet/image-speaker-zx7.jpg') center/cover no-repeat;
-    padding-left: 4rem;
+    padding-left: 2rem;
   }
 
   .ZX7-speaker-text {
