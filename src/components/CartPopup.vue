@@ -57,7 +57,7 @@ const cartStore = useCartStore()
     border-radius: 8px;
     background-color: white;
     margin-inline: auto;
-    max-height: 60vh;
+    max-height: 75vh;
     z-index: 11;
     position: fixed;
     overflow-y: auto;
