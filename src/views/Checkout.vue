@@ -62,7 +62,7 @@ productStore.navbarClass = 'navbar-section alt-navbar'
           <img loading="lazy" :src="`/${item.productImage}`" alt="img" />
           <div class="cart-items-detail">
             <p>{{ item.productName.replace(/Headphones|Speaker|Earphones/g, '') }}</p>
-            <span>$ {{ item.price }}</span>
+            <span>$ {{ item.price.toLocaleString('en-US') }}</span>
           </div>
           <div class="cart-items-quantity">
             <p>x{{ item.quantity }}</p>
@@ -71,7 +71,7 @@ productStore.navbarClass = 'navbar-section alt-navbar'
       </div>
       <div class="overview-total">
         <p>Grand Total</p>
-        <span>$ {{ cartStore.cartTotal }}</span>
+        <span>$ {{ cartStore.cartTotal.toLocaleString('en-US') }}</span>
       </div>
     </div>
     <PrimaryLink @click="resetCart" text="back to home" :href="'/'" />

@@ -57,7 +57,7 @@ productStore.navbarClass = 'navbar-section alt-navbar'
         <p class="new-product" v-if="productStore.product?.new">new product</p>
         <h1>{{ productStore.product?.name }}</h1>
         <p class="description">{{ productStore.product?.description }}</p>
-        <p class="price">${{ productStore.product?.price }}</p>
+        <p class="price">${{ productStore.product?.price.toLocaleString('en-US') }}</p>
         <div class="add-to-cart-section">
           <div class="add-to-cart">
             <button @click="quantity > 1 ? quantity-- : quantity">-</button>

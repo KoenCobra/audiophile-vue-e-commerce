@@ -19,7 +19,6 @@ import { onMounted } from 'vue'
 
 onMounted(() => {
   const aboutText = document.querySelector('.about-text')
-  const aboutImg = document.querySelector('.about-img')
 
   const observer = new IntersectionObserver(
     (entries) => {
@@ -35,7 +34,6 @@ onMounted(() => {
   )
 
   if (aboutText) observer.observe(aboutText)
-  if (aboutImg) observer.observe(aboutImg)
 })
 </script>
 
@@ -57,10 +55,6 @@ onMounted(() => {
   .show {
     opacity: 1;
     animation: slideInFromLeft 0.8s ease-out forwards;
-
-    &.about-img {
-      animation-name: slideInFromRight;
-    }
   }
 
   .about-text {
@@ -110,7 +104,6 @@ onMounted(() => {
   }
 
   .about-img {
-    opacity: 0;
     border-radius: 8px;
     background: url('/images/shared/desktop/image-best-gear.jpg') center/cover no-repeat;
     height: 588px;

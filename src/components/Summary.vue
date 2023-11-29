@@ -12,7 +12,7 @@ const cartStore = useCartStore()
         <img loading="lazy" :src="` /${item.productImage}`" alt="img" />
         <div class="cart-items-detail">
           <p>{{ item.productName.replace(/Headphones|Speaker|Earphones/g, '') }}</p>
-          <span>$ {{ item.price }}</span>
+          <span>$ {{ item.price.toLocaleString('en-US') }}</span>
         </div>
         <div class="cart-items-quantity">
           <p>x{{ item.quantity }}</p>
@@ -22,7 +22,7 @@ const cartStore = useCartStore()
     <div class="totals">
       <div class="total">
         <p>Total</p>
-        <span>$ {{ cartStore.cartTotal }}</span>
+        <span>$ {{ cartStore.cartTotal.toLocaleString('en-US') }}</span>
       </div>
       <div class="total">
         <p>Shipping</p>
@@ -30,11 +30,11 @@ const cartStore = useCartStore()
       </div>
       <div class="total">
         <p>VAT (INCLUDED)</p>
-        <span>$ {{ Math.floor((cartStore.cartTotal / 100) * 21) }}</span>
+        <span>$ {{ Math.floor((cartStore.cartTotal / 100) * 21).toLocaleString('en-US') }}</span>
       </div>
       <div class="total grand-total">
         <p>Grand Total</p>
-        <span>$ {{ cartStore.cartTotal + 50 }}</span>
+        <span>$ {{ (cartStore.cartTotal + 50).toLocaleString('en-US') }}</span>
       </div>
     </div>
 
