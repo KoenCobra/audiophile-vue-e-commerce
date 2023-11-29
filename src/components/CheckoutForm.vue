@@ -72,6 +72,7 @@ defineExpose({ onSubmit })
                 <span v-if="errors.name">{{ errors.name }}</span>
               </div>
               <InputText
+                name="name"
                 :class="{ 'input-error': errors.name }"
                 v-bind="name"
                 type="text"
@@ -84,6 +85,7 @@ defineExpose({ onSubmit })
                 <span v-if="errors.email">{{ errors.email }}</span>
               </div>
               <InputText
+                name="email"
                 :class="{ 'input-error': errors.email }"
                 v-bind="email"
                 type="email"
@@ -96,6 +98,7 @@ defineExpose({ onSubmit })
                 <span v-if="errors.phone">{{ errors.phone }}</span>
               </div>
               <InputText
+                name="phone"
                 :class="{ 'input-error': errors.phone }"
                 v-bind="phone"
                 type="tel"
@@ -113,6 +116,7 @@ defineExpose({ onSubmit })
                 <span v-if="errors.address">{{ errors.address }}</span>
               </div>
               <InputText
+                name="address"
                 :class="{ 'input-error': errors.address }"
                 v-bind="address"
                 type="text"
@@ -125,6 +129,7 @@ defineExpose({ onSubmit })
                 <span v-if="errors.zipCode">{{ errors.zipCode }}</span>
               </div>
               <InputText
+                name="zipCode"
                 :class="{ 'input-error': errors.zipCode }"
                 v-bind="zipCode"
                 type="number"
@@ -137,6 +142,7 @@ defineExpose({ onSubmit })
                 <span v-if="errors.city">{{ errors.city }}</span>
               </div>
               <InputText
+                name="city"
                 :class="{ 'input-error': errors.city }"
                 v-bind="city"
                 type="text"
@@ -149,6 +155,7 @@ defineExpose({ onSubmit })
                 <span v-if="errors.country">{{ errors.country }}</span>
               </div>
               <InputText
+                name="country"
                 :class="{ 'input-error': errors.country }"
                 v-bind="country"
                 type="text"
