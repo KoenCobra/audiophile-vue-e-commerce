@@ -71,29 +71,31 @@ onMounted(() => {
     margin-top: 80px;
   }
   .first {
+    opacity: 0;
     grid-area: first;
   }
 
   .second {
+    opacity: 0;
     grid-area: third;
   }
 
   .third {
+    opacity: 0;
     grid-area: second;
   }
 
   .show {
-    animation: scaleImg 0.5s ease-out;
+    animation: scaleImg 0.5s ease-out forwards;
   }
 
   @keyframes scaleImg {
     0% {
-      transform: scale(1);
+      transform: scale(0.5);
     }
-    30% {
-      transform: scale(0.95);
-    }
+
     100% {
+      opacity: 1;
       transform: scale(1);
     }
   }
